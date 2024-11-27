@@ -1,36 +1,48 @@
 package entidades;
 
 public class Propiedad {
+	private int Id;
 	private String Titulo;
-	private String URLimagen;
+	private String Localidad;
+	private String URLimagenPrincipal;
 	private String Precio;
 	private String Resenia;
 	private String Descripcion;
-	private String Ubicacion;
+	private String URLmaps;
 	
 	public Propiedad() {
 		super();
 	}
 
-	public Propiedad(String titulo, String uRLimagen, String resenia, String descripcion,
-			String ubicacion) {
+	public Propiedad(String titulo, String localidad,String uRLimagen, String resenia, String descripcion,
+			String urlMaps) {
 		super();
 		Titulo = titulo;
-		URLimagen = uRLimagen;
+		Localidad = localidad;
+		URLimagenPrincipal = uRLimagen;
 		Resenia = resenia;
 		Descripcion = descripcion;
-		Ubicacion = ubicacion;
+		URLmaps = urlMaps;
 	}
 	
-	public Propiedad(String titulo, String uRLimagen, String precio, String resenia, String descripcion,
+	public Propiedad(int id,String titulo, String uRLimagen, String precio, String resenia, String descripcion,
 			String ubicacion) {
 		super();
+		Id = id;
 		Titulo = titulo;
-		URLimagen = uRLimagen;
+		URLimagenPrincipal = uRLimagen;
 		Precio = precio;
 		Resenia = resenia;
 		Descripcion = descripcion;
-		Ubicacion = ubicacion;
+		URLmaps = ubicacion;
+	}
+	
+	public int getId() {
+		return Id;
+	}
+
+	public void setId(int id) {
+		Id = id;
 	}
 
 	public String getTitulo() {
@@ -41,12 +53,20 @@ public class Propiedad {
 		Titulo = titulo;
 	}
 
-	public String getURLimagen() {
-		return URLimagen;
+	public String getLocalidad() {
+		return Localidad;
 	}
 
-	public void setURLimagen(String uRLimagen) {
-		URLimagen = uRLimagen;
+	public void setLocalidad(String localidad) {
+		Localidad = localidad;
+	}
+
+	public String getURLimagenPrincipal() {
+		return URLimagenPrincipal;
+	}
+
+	public void setURLimagenPrincipal(String uRLimagenPrincipal) {
+		URLimagenPrincipal = uRLimagenPrincipal;
 	}
 
 	public String getPrecio() {
@@ -73,11 +93,11 @@ public class Propiedad {
 		Descripcion = descripcion;
 	}
 
-	public String getUbicacion() {
-		return Ubicacion;
+	public String getURLmaps() {
+		return URLmaps;
 	}
 
-	public void setUbicacion(String ubicacion) {
-		Ubicacion = ubicacion;
+	public void setURLmaps(String urlMaps) {
+		URLmaps = urlMaps;
 	}
 }
