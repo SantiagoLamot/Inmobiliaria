@@ -3,7 +3,8 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
+
+import com.mysql.jdbc.Statement;
 
 import dao.DaoConexion;
 import entidades.Propiedad;
@@ -12,12 +13,14 @@ import entidades.Propiedad;
 public class DaoPropiedad {
 	
 	public int RegistrarPropiedad(Propiedad p) {
-		int IdPropiedad	= 0;
+		int IdPropiedad	= -1;
 		try {
 				DaoConexion dc = new DaoConexion();
 				Connection cn = dc.getConnection();
 				PreparedStatement pstmt = cn.prepareStatement("INSERT INTO `db_inmobiliaria`.`tb_propiedades` "
-						+ "(`titulo`, `precio`, `resenia`, `descripcion`, `ubicacion`, `localidad`) VALUES (?, ?, ?, ?, ?, ?);");
+						+ "(`titulo`, `precio`, `resenia`, `descripcion`, `ubicacion`, `localidad`) VALUES (?, ?, ?, ?, ?, ?);",
+						Statement.RETURN_GENERATED_KEYS);
+				// Statement.RETURN_GENERATED_KEYS: Esto indica al driver de la base de datos que queremos recuperar las claves generadas automáticamente.
 				pstmt.setString(1, p.getTitulo());
 				pstmt.setString(2, p.getPrecio());
 				pstmt.setString(3, p.getResenia());
@@ -35,7 +38,7 @@ public class DaoPropiedad {
 		        }
 			
 		    } catch (Exception e) {
-		        System.out.print("Error registrando usuario visitante: " + e);
+		        System.out.print("Error registrando propiedad: " + e);
 		    }
 		    return IdPropiedad;
 		}

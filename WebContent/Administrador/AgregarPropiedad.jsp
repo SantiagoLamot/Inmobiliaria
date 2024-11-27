@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div class="container">
-		<form action="ServletGuardarPropiedad" method="post" enctype="multipart/form-data">	
+		<form action="${pageContext.request.contextPath}/ServletGuardarPropiedad" method="post" enctype="multipart/form-data">	
 			<div class="row mb-4">
 				<div class="col-md-12 centrar">
 					<h1>Agregar Propiedad</h1>
@@ -47,7 +47,7 @@
 					<h3>Reseña</h3>
 				</div>
 				<div class="col-md-9 centrar">
-					<textarea name="textReseña"></textarea>
+					<textarea name="txtResenia"></textarea>
 				</div>
 			</div>
 			
@@ -57,7 +57,7 @@
 					<h3>Descripcion</h3>
 				</div>
 				<div class="col-md-9 centrar">
-					<textarea name="textReseña" rows="20"></textarea>
+					<textarea name="txtDescripcion" rows="20"></textarea>
 				</div>
 			</div>
 			

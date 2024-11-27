@@ -19,7 +19,7 @@
     <div class="row">
         <div class="col-md-4">
             <div class="card">
-                <img src="https://via.placeholder.com/300" class="card-img-top" alt="Propiedad 1">
+                <img src="uploads/07c2ae9a-1aa2-4b72-aac0-b06ea857b46b.jpg" class="card-img-top" alt="Propiedad 1">
                 <div class="card-body">
                     <h5 class="card-title">Casa en el centro</h5>
                     <p class="card-text">3 habitaciones, 2 baños, jardín.</p>

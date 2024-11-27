@@ -8,7 +8,7 @@ public class DaoConexion {
 	private String host = "jdbc:mysql://localhost:3306/";
     private String user = "root";
     private String pass = "root";
-    private String dbName = "bd_inmobiliaria";
+    private String dbName = "db_inmobiliaria";
     private Connection connection = null;
 
     public DaoConexion() {
