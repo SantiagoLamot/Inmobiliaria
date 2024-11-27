@@ -87,12 +87,12 @@ public class DaoPropiedad {
 			DaoConexion dc = new DaoConexion();
 			Connection cn = dc.getConnection();
 			
-			PreparedStatement pstmt = cn.prepareStatement("SELECT tb_propiedades.id, tb_propiedades.titulo,tb_propiedades.resenia,  db_inmobiliaria.tb_imagenes.url FROM db_inmobiliaria.tb_propiedades " + 
+			PreparedStatement pstmt = cn.prepareStatement("SELECT tb_propiedades.id, tb_propiedades.titulo,tb_propiedades.resenia, tb_propiedades.localidad,  db_inmobiliaria.tb_imagenes.url FROM db_inmobiliaria.tb_propiedades " + 
 					"inner join db_inmobiliaria.tb_imagenes_propiedades on tb_propiedades.id = tb_imagenes_propiedades.id_propiedad " + 
 					"inner join db_inmobiliaria.tb_imagenes on tb_imagenes_propiedades.id_imagen = tb_imagenes.id " + 
 					"GROUP BY db_inmobiliaria.tb_propiedades.id;");
 			ResultSet rs = pstmt.executeQuery();
-			if(rs.next())
+			while(rs.next())
 			{
 				Propiedad p = new Propiedad();
 				p.setId(rs.getInt("id"));
@@ -100,6 +100,7 @@ public class DaoPropiedad {
 				p.setResenia(rs.getString("resenia"));
 				p.setURLimagenPrincipal(rs.getString("url"));
 				p.setLocalidad(rs.getString("localidad"));
+				propiedades.add(p);
 			}
 		}
 		catch (Exception e) {
