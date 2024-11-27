@@ -1,5 +1,8 @@
 package entidades;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Propiedad {
 	private int Id;
 	private String Titulo;
@@ -9,6 +12,7 @@ public class Propiedad {
 	private String Resenia;
 	private String Descripcion;
 	private String URLmaps;
+	private List<String> URLimagenes = new ArrayList<>();;
 	
 	public Propiedad() {
 		super();
@@ -100,4 +104,17 @@ public class Propiedad {
 	public void setURLmaps(String urlMaps) {
 		URLmaps = urlMaps;
 	}
+
+	public List<String> getURLimagenes() {
+		return URLimagenes;
+	}
+
+	public void setURLimagenes(List<String> uRLimagenes) {
+		URLimagenes = uRLimagenes;
+	}
+	
+	public void addURLimagen(String url) {
+	    this.URLimagenes.add(url);
+	}
+	
 }
