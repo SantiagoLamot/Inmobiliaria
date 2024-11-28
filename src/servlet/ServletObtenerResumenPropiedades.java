@@ -24,7 +24,6 @@ public class ServletObtenerResumenPropiedades extends HttpServlet {
 		 request.getSession().setAttribute("Propiedades", propiedades);
 	     // Redirigir a index.jsp después de cargar los datos en la sesión
 	     response.sendRedirect(request.getContextPath() + "/index.jsp");
-	     System.out.println("cant de propieadades: "+ propiedades.size());
 	}
 
 	

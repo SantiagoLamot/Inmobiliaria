@@ -5,29 +5,36 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<!-- Ajusta el diseño para móviles, adaptando el ancho al dispositivo y garantizando un comportamiento responsive. -->
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Inmobiliaria Paula Uzubiaga</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 
-<body> <jsp:include page="menu.jsp" /> </body>
+<jsp:include page="menu.jsp" />
 <div class="container mt-4">
-    <h1 class="text-center">Bienvenido a Inmobiliaria Paula Uzubiaga</h1>
+    <h1 class="text-center">Bienvenido</h1>
     <p class="text-center">Encuentra la propiedad de tus sueños con nosotros.</p>
-	<c:forEach var="Propiedad" items="${Propiedades}">
     <div class="row">
-        <div class="col-md-4">
-            <div class="card">
-                <img src="${Propiedad.getURLimagenPrincipal()}" class="card-img-top" alt="Propiedad 1">
-                <div class="card-body">
-                    <h5 class="card-title">${Propiedad.getTitulo()}</h5>
-                    <p class="card-text">${Propiedad.getResenia()}</p>
-                    <a href="${pageContext.request.contextPath}/ServletPropiedadCompleta?id=${Propiedad.getId()}" class="btn btn-primary">Ver más</a>
+        <c:forEach var="Propiedad" items="${Propiedades}">
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                <div class="card h-100">
+                    <img src="${Propiedad.getURLimagenPrincipal()}" class="card-img-top" alt="${Propiedad.getTitulo()}">
+                    <div class="card-body">
+                        <h5 class="card-title">${Propiedad.getTitulo()}</h5>
+                        <p class="card-text">${Propiedad.getResenia()}</p>
+                        <a href="${pageContext.request.contextPath}/ServletPropiedadCompleta?id=${Propiedad.getId()}" class="btn btn-primary">Ver más</a>
+                    </div>
                 </div>
             </div>
-        </div>
+        </c:forEach>
     </div>
-	</c:forEach>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

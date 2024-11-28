@@ -33,7 +33,6 @@ public class DaoConexion {
 
     public Connection getConnection() {
         if (connection != null) {
-            System.out.println("Conexión activa.");
         } else {
             System.err.println("La conexión no está activa.");
         }

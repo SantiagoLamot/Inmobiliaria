@@ -19,7 +19,7 @@ public class DaoPropiedad {
 				DaoConexion dc = new DaoConexion();
 				Connection cn = dc.getConnection();
 				PreparedStatement pstmt = cn.prepareStatement("INSERT INTO `db_inmobiliaria`.`tb_propiedades` "
-						+ "(`titulo`, `precio`, `resenia`, `descripcion`, `ubicacion`, `localidad`) VALUES (?, ?, ?, ?, ?, ?);",
+						+ "(`titulo`, `precio`, `resenia`, `descripcion`, `urlMaps`, `localidad`) VALUES (?, ?, ?, ?, ?, ?);",
 						Statement.RETURN_GENERATED_KEYS);
 				// Statement.RETURN_GENERATED_KEYS: Esto indica al driver de la base de datos que queremos recuperar las claves generadas automáticamente.
 				pstmt.setString(1, p.getTitulo());
@@ -65,7 +65,7 @@ public class DaoPropiedad {
 				p.setPrecio(rs.getString("precio"));
 				p.setResenia(rs.getString("resenia"));
 				p.setDescripcion(rs.getString("descripcion"));
-				p.setURLmaps(rs.getString("ubicacion"));
+				p.setURLmaps(rs.getString("urlMaps"));
 				p.setLocalidad(rs.getString("localidad"));
 				p.addURLimagen(rs.getString("url"));
 				while (rs.next()) {
@@ -87,7 +87,7 @@ public class DaoPropiedad {
 			DaoConexion dc = new DaoConexion();
 			Connection cn = dc.getConnection();
 			
-			PreparedStatement pstmt = cn.prepareStatement("SELECT tb_propiedades.id, tb_propiedades.titulo,tb_propiedades.resenia, tb_propiedades.localidad,  db_inmobiliaria.tb_imagenes.url FROM db_inmobiliaria.tb_propiedades " + 
+			PreparedStatement pstmt = cn.prepareStatement("SELECT tb_propiedades.*, db_inmobiliaria.tb_imagenes.url FROM db_inmobiliaria.tb_propiedades " + 
 					"inner join db_inmobiliaria.tb_imagenes_propiedades on tb_propiedades.id = tb_imagenes_propiedades.id_propiedad " + 
 					"inner join db_inmobiliaria.tb_imagenes on tb_imagenes_propiedades.id_imagen = tb_imagenes.id " + 
 					"GROUP BY db_inmobiliaria.tb_propiedades.id;");
@@ -100,6 +100,7 @@ public class DaoPropiedad {
 				p.setResenia(rs.getString("resenia"));
 				p.setURLimagenPrincipal(rs.getString("url"));
 				p.setLocalidad(rs.getString("localidad"));
+				p.setLocalidad(rs.getString("urlMaps"));
 				propiedades.add(p);
 			}
 		}
