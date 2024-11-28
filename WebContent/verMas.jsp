@@ -18,15 +18,15 @@
 
 
 <div class="container mt-4">
-    <h1>${Propiedad.getTitulo()}</h1>
-    <p><strong>Precio:</strong> ${Propiedad.getPrecio()}</p>
-    <p><strong>Reseña:</strong> ${Propiedad.getResenia()}</p>
-    <p><strong>Descripción:</strong> ${Propiedad.getDescripcion()}</p>
-    <p><strong>Localidad:</strong> ${Propiedad.getLocalidad()}</p>
+    <h1 class="text-center">${Propiedad.getTitulo()}</h1>
+    <p class="text-center"><strong>Precio:</strong> ${Propiedad.getPrecio()}</p>
+    <p class="text-center"><strong>Reseña:</strong> ${Propiedad.getResenia()}</p>
+    <p class="text-center"><strong>Descripción:</strong> ${Propiedad.getDescripcion()}</p>
+    <p class="text-center"><strong>Localidad:</strong> ${Propiedad.getLocalidad()}</p>
     <c:forEach var="imagen" items="${Propiedad.getURLimagenes()}">
 	    <img src="${imagen}" class="card-img-top" alt="${imagen}">
 	</c:forEach>
-    <p><strong>Ubicacion:</strong></p>
+    <p class="text-center"><strong>Ubicacion:</strong></p>
     <div class="row mt-4">
         <div class="col-12">
             <iframe
@@ -40,9 +40,6 @@
             </iframe>
         </div>
     </div>
-    
-    
-    <a href="index.jsp" class="btn btn-secondary">Volver a Propiedades</a>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
