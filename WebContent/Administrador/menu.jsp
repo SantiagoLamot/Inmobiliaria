@@ -22,7 +22,7 @@
                 <a class="nav-link" href="#">Propiedades</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Servicios</a>
+                <a class="nav-link" href="${pageContext.request.contextPath}/ServletEditarServicios">Editar servicios</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="${pageContext.request.contextPath}/Administrador/AgregarPropiedad.jsp">Agregar propiedad</a>

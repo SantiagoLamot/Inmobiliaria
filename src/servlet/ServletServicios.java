@@ -17,7 +17,7 @@ public class ServletServicios extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getSession().setAttribute("Servicios", ns.ObtenerServicios());
+		request.getSession().setAttribute("Servicios", ns.ObtenerServiciosActivos());
 		response.sendRedirect(request.getContextPath() + "/servicios.jsp");
 	}
 
