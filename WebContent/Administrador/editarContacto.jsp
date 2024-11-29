@@ -14,22 +14,65 @@
 <body>
 <%-- <jsp:include page="menu.jsp" /> --%>
 <div class="container mt-4">
-    <h1 class="text-center">Contacto</h1>
-    <form action="EnviarContactoServlet" method="post">
-        <div class="form-group">
-            <label for="nombre">Nombre</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" required>
-        </div>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-            <label for="mensaje">Mensaje</label>
-            <textarea class="form-control" id="mensaje" name="mensaje" rows="5" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Enviar</button>
-    </form>
+    <form action="${pageContext.request.contextPath}/ServletEditarContactos" method="post">
+			<div class="row mb-4">
+				<div class="col-md-12 centrar">
+					<h1>Edicion redes sociales</h1>
+				</div>
+			</div>
+			<!-- facebook -->
+			<div class="row mb-4">
+				<div class="col-md-1 centrar">
+					<img alt="Logo agregar imagen" src="<%=request.getContextPath()%>/logos/logoFacebook.png">
+				</div>
+				<div class="col-md-11 centrar">
+					<input type="text" name = "txtFacebook" value="${contacto.getUrlfacebook()}">
+				</div>
+			</div>
+			<!-- insta -->
+			<div class="row mb-4">
+				<div class="col-md-1 centrar">
+				<img alt="Logo agregar imagen" src="<%=request.getContextPath()%>/logos/logoInstagram.png">
+				</div>
+				<div class="col-md-11 centrar">
+					<input type="text" name = "txtInsta" value="${contacto.getUrlInstagram()}" >
+				</div>
+			</div>
+			<!--  what-->
+			<div class="row mb-4">
+				<div class="col-md-1 centrar">
+					<img alt="Logo agregar imagen" src="<%=request.getContextPath()%>/logos/logoWhatsapp.png">
+				</div>
+				<div class="col-md-11 centrar">
+					<input type="text" name = "txtWhats" value="${contacto.getUrlWhatsapp()}">
+				</div>
+			</div>
+			
+			<!--  Google Maps-->
+			<div class="row mb-4">
+				<div class="col-md-1 centrar">
+					<img alt="Logo agregar imagen" src="<%=request.getContextPath()%>/logos/logoMaps.png">
+				</div>
+				<div class="col-md-11 centrar">
+					<input type="text" name = "txtMaps" value="${contacto.getUrlMaps()}">
+				</div>
+			</div>
+			<!--  Direccion-->
+			<div class="row mb-4">
+				<div class="col-md-1 centrar">
+					<img alt="Logo agregar imagen" src="<%=request.getContextPath()%>/logos/logoDireccion.png">
+				</div>
+				<div class="col-md-11 centrar">
+					<input type="text" name = "txtDireccion" value="${contacto.getDireccion()}">
+				</div>
+			</div>
+				
+			<div class="row mb-4">
+				<div class="col-md-12 centrar">
+					<input type="submit" name="btnGuardar" value="Guardar">
+				</div>
+			</div>
+		</form>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>

@@ -29,3 +29,6 @@ CREATE TABLE `tb_imagenes_propiedades` (
   CONSTRAINT `ff_imagenes` FOREIGN KEY (`id_imagen`) REFERENCES `tb_imagenes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_propiedades` FOREIGN KEY (`id_propiedad`) REFERENCES `tb_propiedades` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+insert into db_inmobiliaria.tb_contactos (direccion, urlWhatsapp, urlInstagram, urlMaps) value ('Av. 9 de Julio 201, Tapalque, Prov. de Buenos Aires.','https://wa.me/5492281683888','https://www.instagram.com/paulauzubiagainmobiliaria/', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d200.8338315100126!2d-60.031102302418006!3d-36.35251097953135!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9595c3c9a58f9d35%3A0x40049df05896e1ad!2sPaula%20Uzubiaga%20Casas%20%26%20Campos!5e0!3m2!1ses-419!2sar!4v1732820835774!5m2!1ses-419!2sar')

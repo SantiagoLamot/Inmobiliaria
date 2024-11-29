@@ -10,4 +10,10 @@ public class NegocioContacto {
 	{
 		return dc.ObtenerDatosContactos();
 	}
+	
+	public void ActualizarContactos(Contacto c)
+	{
+		dc.ActualizarContactos(c);
+		return;
+	}
 }
