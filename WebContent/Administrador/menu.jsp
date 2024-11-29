@@ -16,16 +16,19 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="${pageContext.request.contextPath}">Inicio</a>
+                <a class="nav-link" href="${pageContext.request.contextPath}/Administrador/principalAdministrador.jsp">Inicio</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Propiedades</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="${pageContext.request.contextPath}/ServletServicios">Servicios</a>
+                <a class="nav-link" href="#">Servicios</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="${pageContext.request.contextPath}/ServletContacto">Contacto</a>
+                <a class="nav-link" href="${pageContext.request.contextPath}/Administrador/AgregarPropiedad.jsp">Agregar propiedad</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="${pageContext.request.contextPath}/ServletEditarContactos">Editar contactos</a>
             </li>
         </ul>
     </div>
