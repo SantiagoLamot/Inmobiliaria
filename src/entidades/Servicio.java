@@ -9,12 +9,15 @@ public class Servicio {
 		super();
 	}
 
+	public Servicio(String servicio) {
+		super();
+		Servicio = servicio;
+	}
 	public Servicio(int id, String servicio) {
 		super();
 		Id = id;
 		Servicio = servicio;
 	}
-	
 		
 	public Servicio(int id, String servicio, boolean estado) {
 		super();

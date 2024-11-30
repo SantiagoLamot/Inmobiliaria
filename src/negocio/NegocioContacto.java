@@ -16,4 +16,10 @@ public class NegocioContacto {
 		dc.ActualizarContactos(c);
 		return;
 	}
+	
+	public String ObtenerUrlWhatsapp()
+	{
+		return dc.ObtenerUrlWhatsapp();
+	}
+	
 }

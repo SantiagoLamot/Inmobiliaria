@@ -12,27 +12,67 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-<header >
-	<body> <jsp:include page="menu.jsp" /> </body>
+<header>
+    <jsp:include page="menu.jsp" />
 </header>
-
-
 <div class="container mt-4">
-    <h1 class="text-center">${Propiedad.getTitulo()}</h1>
-    <p class="text-center"><strong>Precio:</strong> ${Propiedad.getPrecio()}</p>
-    <p class="text-center"><strong>Reseña:</strong> ${Propiedad.getResenia()}</p>
-    <p class="text-center"><strong>Descripción:</strong> ${Propiedad.getDescripcion()}</p>
-    <p class="text-center"><strong>Localidad:</strong> ${Propiedad.getLocalidad()}</p>
-    <c:forEach var="imagen" items="${Propiedad.getURLimagenes()}">
-	    <img src="${imagen}" class="card-img-top" alt="${imagen}">
-	</c:forEach>
+    <div class="row mb-4">
+		<div class="col-md-12 centrar text-center">
+    		<h1 class="text-center">${Propiedad.getTitulo()}</h1>
+		    <p class="text-center"><strong>${Propiedad.getResenia()}</strong></p>
+		</div>
+	</div>
+	
+    <div class="row mb-4">
+		<div class="col-md-12 centrar text-center">
+		    <c:if test="${Propiedad.getPrecio() != '' && Propiedad.getPrecio() != null}">
+			    <p class="text-center"><strong>Precio:</strong>${Propiedad.getPrecio()} </p>
+			</c:if>
+			<c:if test="${Propiedad.getPrecio() == '' || Propiedad.getPrecio() == null}">
+				<p class="text-center"><strong>Consulta el precio </strong></p>
+				<a href="${UrlWhatsapp}" target="_blank"  class="text-center">
+					<img src="<%=request.getContextPath()%>/logos/logoWhatsapp.png" alt="Whatsapp">
+				</a>
+			</c:if>
+		</div>
+	</div>	
+	<div class="row mb-4">
+		<div class="col-md-12 centrar text-center">
+		    <p class="text-center"><strong>Descripción:</strong> ${Propiedad.getDescripcion()}</p>
+		</div>
+	</div>	
+    <div class="row mb-4">
+		<div class="col-md-12 centrar text-center">
+		    <p class="text-center"><strong>Localidad:</strong> ${Propiedad.getLocalidad()}</p>
+		</div>
+	</div>	
+    <!-- Carrusel de imágenes -->
+    <div id="propertyCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <c:forEach var="imagen" items="${Propiedad.getURLimagenes()}" varStatus="status">
+                <div class="carousel-item ${status.first ? 'active' : ''}">
+                    <img src="${imagen}" class="d-block w-100" alt="Imagen de propiedad">
+                </div>
+            </c:forEach>
+        </div>
+        <!-- Controles del carrusel -->
+        <a class="carousel-control-prev" href="#propertyCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Anterior</span>
+        </a>
+        <a class="carousel-control-next" href="#propertyCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Siguiente</span>
+        </a>
+    </div>
+
     <p class="text-center"><strong>Ubicacion:</strong></p>
     <div class="row mt-4">
-        <div class="col-12">
+        <div class="col-12 d-flex justify-content-center">
             <iframe
                 src="${Propiedad.getURLmaps()}"
-                width="100%"
-                height="500"
+                width="75%"
+                height="300"
                 style="border:0;"
                 allowfullscreen=""
                 loading="lazy"
@@ -41,7 +81,8 @@
         </div>
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>

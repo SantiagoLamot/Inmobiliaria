@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,7 +10,6 @@
 <!-- Bootstrap -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <title>Inmobiliaria Paula Uzubiaga</title>
-
 </head>
 <body>
 <jsp:include page="menu.jsp" />
@@ -36,7 +34,6 @@
                         <td>${objeto.getServicio()}</td>
                         <td>${objeto.isEstado() ? "Activo" : "Inactivo"}</td>
                         <td>
-                            <!-- Formulario para modificar -->
                             <form action="${pageContext.request.contextPath}/ServletEditarServicios" method="post" class="form-inline">
                                 <input type="hidden" name="idServicio" value="${objeto.getId()}">
                                 <div class="form-group mb-2">
@@ -48,7 +45,8 @@
                                         <option value="false" ${!objeto.isEstado() ? "selected" : ""}>Inactivo</option>
                                     </select>
                                 </div>
-                                <button type="submit" class="btn btn-primary mb-2">Actualizar</button>
+                                <button type="submit" name ="btnActualizar" class="btn btn-primary mb-2">Actualizar</button>
+                                <button type="submit" name="btnEliminar" class="btn btn-danger mb-2">Eliminar</button>
                             </form>
                         </td>
                     </tr>
@@ -56,6 +54,23 @@
             </tbody>
         </table>
     </div>
+    <div class="row mb-4">
+        <div class="col-md-12 centrar">
+            <h1 class="text-center">Agregar servicios</h1>
+        </div>
+    </div>
+    <form action="${pageContext.request.contextPath}/ServletAgregarServicios" method="post">
+	    <div class="row mb-4">
+	        <div class="col-md-12 centrar">
+	            <input type="text" class="form-control" name="txtServicio" placeholder="Ingresa tu contraseña">
+	        </div>
+	    </div>
+	    <div class="row mt-4">
+                <div class="col-md-12 text-center">
+                    <button type="submit" name="btnGuardar" class="btn btn-primary">Agregar</button>
+                </div>
+            </div>
+    </form>
 </div>
 </body>
 </html>

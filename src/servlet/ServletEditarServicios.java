@@ -21,17 +21,22 @@ public class ServletEditarServicios extends HttpServlet {
 		response.sendRedirect(request.getContextPath() + "/Administrador/editarServicio.jsp");
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String idS = request.getParameter("idServicio");
-		String servicio = request.getParameter("txtServicio");
-		String estadoS = request.getParameter("SelectEstado");
-
-		int id = Integer.parseInt(idS);
-		boolean estado = Boolean.parseBoolean(estadoS);
-		
-		Servicio s = new Servicio(id,servicio,estado);
-		ns.ActualizarServicio(s);
-		response.sendRedirect("ServletEditarServicios");
-		
+		if (request.getParameter("btnActualizar") != null) {
+			String idS = request.getParameter("idServicio");
+			String servicio = request.getParameter("txtServicio");
+			String estadoS = request.getParameter("SelectEstado");
+			
+			int id = Integer.parseInt(idS);
+			boolean estado = Boolean.parseBoolean(estadoS);
+			
+			Servicio s = new Servicio(id,servicio,estado);
+			ns.ActualizarServicio(s);
+	    } 
+		else if (request.getParameter("btnEliminar") != null) {
+			String idS = request.getParameter("idServicio");
+			int id = Integer.parseInt(idS);
+			ns.EliminarServicio(id);
+		}
+		response.sendRedirect(request.getContextPath() + "/ServletEditarServicios");
 	}
-
 }

@@ -69,4 +69,31 @@ public class DaoServicio {
 	    }
 	}
 	
+	public void AgregarServicio(Servicio s)
+	{
+		try {
+			DaoConexion dc = new DaoConexion();
+			Connection cn = dc.getConnection();
+			PreparedStatement pstmt = cn.prepareStatement("INSERT INTO `db_inmobiliaria`.`tb_servicios` (`servicio`) VALUES (?);");
+			pstmt.setString(1, s.getServicio());
+			pstmt.executeUpdate();
+	    } 
+		catch (Exception e) {
+	        System.out.print("Error agregando servicio: " + e);
+	    }
+	}
+	
+	public void EliminarServicio(int id)
+	{
+		try {
+			DaoConexion dc = new DaoConexion();
+			Connection cn = dc.getConnection();
+			PreparedStatement pstmt = cn.prepareStatement("delete from db_inmobiliaria.tb_servicios where tb_servicios.id = ?");
+			pstmt.setInt(1, id);
+			pstmt.executeUpdate();
+	    } 
+		catch (Exception e) {
+	        System.out.print("Error eliminado servicio: " + e);
+	    }
+	}
 }

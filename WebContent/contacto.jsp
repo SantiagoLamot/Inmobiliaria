@@ -31,9 +31,9 @@
 		<div class="col-md-12 centrar text-center">
 	<!-- whatsapp -->
 	<c:if test="${contacto.getUrlWhatsapp() != '' && contacto.getUrlWhatsapp() != null}">
-				<a  href="${contacto.getUrlWhatsapp()}" target="_blank"  class="text-center">
-			    	<img src="<%=request.getContextPath()%>/logos/logoWhatsapp.png" alt="Facebook">
-			    </a>
+		<a  href="${contacto.getUrlWhatsapp()}" target="_blank"  class="text-center">
+			<img src="<%=request.getContextPath()%>/logos/logoWhatsapp.png" alt="Facebook">
+		</a>
 	</c:if>
 	
 	<!-- facebook -->
@@ -60,11 +60,11 @@
 		</div>
 	</div>
 	<div class="row mt-4">
-        <div class="col-12">
+        <div class="col-12 d-flex justify-content-center">
             <iframe
                 src="${contacto.getUrlMaps()}"
-                width="100%"
-                height="500"
+                width="75%"
+                height="250"
                 style="border:0;"
                 allowfullscreen=""
                 loading="lazy"

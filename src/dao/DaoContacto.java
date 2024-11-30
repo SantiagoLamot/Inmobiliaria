@@ -60,4 +60,25 @@ public class DaoContacto {
 	        System.out.print("Error registrando propiedad: " + e);
 	    }
 	}
+	
+	public String ObtenerUrlWhatsapp()
+	{
+		String UrlWhatsapp ="";
+		try{
+			DaoConexion dc = new DaoConexion();
+			Connection cn = dc.getConnection();
+			
+			PreparedStatement pstmt = cn.prepareStatement("SELECT tb_contactos.urlWhatsapp FROM db_inmobiliaria.tb_contactos;");
+			
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next())
+			{
+				UrlWhatsapp= rs.getString("urlWhatsapp");
+			}
+		}
+		catch (Exception e) {
+			System.out.print("Error" + e);
+		}
+		return UrlWhatsapp;
+	}
 }

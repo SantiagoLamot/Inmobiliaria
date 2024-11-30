@@ -52,7 +52,7 @@
     </style>
 </head>
 <body>
-    
+    <jsp:include page="menu.jsp" />
     <div class="container mt-4">
         <h1 class="text-center mb-4">Agregar Propiedad</h1>
         
@@ -71,7 +71,7 @@
                     
                     <div class="form-group mb-3">
                         <label for="txtPrecio">Precio</label>
-                        <input type="number" step="0.01" name="txtPrecio" id="txtPrecio" required class="form-control">
+                        <input type="number" step="0.01" name="txtPrecio" id="txtPrecio" class="form-control">
                     </div>
                     
                     <div class="form-group mb-3">
