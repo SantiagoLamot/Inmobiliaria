@@ -23,5 +23,15 @@ public class NegocioServicio {
 		ds.ActualizarServicio(s);
 		return; 
 	}
+	public void AgregarServicio(Servicio s)
+	{
+		ds.AgregarServicio(s);
+		return;
+	}
+	public void EliminarServicio(int id)
+	{
+		ds.EliminarServicio(id);
+		return;
+	}
 }
 
