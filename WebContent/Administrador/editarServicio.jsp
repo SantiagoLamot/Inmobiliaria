@@ -65,11 +65,11 @@
 	            <input type="text" class="form-control" name="txtServicio" placeholder="Ingresa tu contraseña">
 	        </div>
 	    </div>
-	    <div class="row mb-4">
-	        <div class="col-md-12 centrar">
-	    		<button type="submit" class="btn btn-primary mb-2">Agregar</button>
-	    	</div>
-	    </div>
+	    <div class="row mt-4">
+                <div class="col-md-12 text-center">
+                    <button type="submit" name="btnGuardar" class="btn btn-primary">Agregar</button>
+                </div>
+            </div>
     </form>
 </div>
 </body>

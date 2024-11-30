@@ -12,12 +12,12 @@
 
 </head>
 <body>
-<%-- <jsp:include page="menu.jsp" /> --%>
+<jsp:include page="menu.jsp" />
 <div class="container mt-4">
     <form action="${pageContext.request.contextPath}/ServletEditarContactos" method="post">
 			<div class="row mb-4">
 				<div class="col-md-12 centrar">
-					<h1>Edicion redes sociales</h1>
+					<h1 class="text-center">Edicion redes sociales</h1>
 				</div>
 			</div>
 			<!-- facebook -->
@@ -26,7 +26,7 @@
 					<img alt="Logo agregar imagen" src="<%=request.getContextPath()%>/logos/logoFacebook.png">
 				</div>
 				<div class="col-md-11 centrar">
-					<input type="text" name = "txtFacebook" value="${contacto.getUrlfacebook()}">
+					<input type="text" class="form-control" name = "txtFacebook" value="${contacto.getUrlfacebook()}">
 				</div>
 			</div>
 			<!-- insta -->
@@ -35,7 +35,7 @@
 				<img alt="Logo agregar imagen" src="<%=request.getContextPath()%>/logos/logoInstagram.png">
 				</div>
 				<div class="col-md-11 centrar">
-					<input type="text" name = "txtInsta" value="${contacto.getUrlInstagram()}" >
+					<input type="text" class="form-control" name = "txtInsta" value="${contacto.getUrlInstagram()}" >
 				</div>
 			</div>
 			<!--  what-->
@@ -44,7 +44,7 @@
 					<img alt="Logo agregar imagen" src="<%=request.getContextPath()%>/logos/logoWhatsapp.png">
 				</div>
 				<div class="col-md-11 centrar">
-					<input type="text" name = "txtWhats" value="${contacto.getUrlWhatsapp()}">
+					<input type="text" class="form-control" name = "txtWhats" value="${contacto.getUrlWhatsapp()}">
 				</div>
 			</div>
 			
@@ -54,7 +54,7 @@
 					<img alt="Logo agregar imagen" src="<%=request.getContextPath()%>/logos/logoMaps.png">
 				</div>
 				<div class="col-md-11 centrar">
-					<input type="text" name = "txtMaps" value="${contacto.getUrlMaps()}">
+					<input type="text" class="form-control" name = "txtMaps" value="${contacto.getUrlMaps()}">
 				</div>
 			</div>
 			<!--  Direccion-->
@@ -63,15 +63,15 @@
 					<img alt="Logo agregar imagen" src="<%=request.getContextPath()%>/logos/logoDireccion.png">
 				</div>
 				<div class="col-md-11 centrar">
-					<input type="text" name = "txtDireccion" value="${contacto.getDireccion()}">
+					<input type="text" class="form-control" name = "txtDireccion" value="${contacto.getDireccion()}">
 				</div>
 			</div>
 				
-			<div class="row mb-4">
-				<div class="col-md-12 centrar">
-					<input type="submit" name="btnGuardar" value="Guardar">
-				</div>
-			</div>
+			<div class="row mt-4">
+                <div class="col-md-12 text-center">
+                    <button type="submit" name="btnGuardar" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
 		</form>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
