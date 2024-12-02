@@ -19,13 +19,13 @@
                 <a class="nav-link" href="${pageContext.request.contextPath}/Administrador/principalAdministrador.jsp">Inicio</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Propiedades</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="${pageContext.request.contextPath}/ServletEditarServicios">Editar servicios</a>
+                <a class="nav-link" href="${pageContext.request.contextPath}/ServletObtenerResumenPropiedades?source=admin">Editar Propiedades</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="${pageContext.request.contextPath}/Administrador/AgregarPropiedad.jsp">Agregar propiedad</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="${pageContext.request.contextPath}/ServletEditarServicios">Editar servicios</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="${pageContext.request.contextPath}/ServletEditarContactos">Editar contactos</a>

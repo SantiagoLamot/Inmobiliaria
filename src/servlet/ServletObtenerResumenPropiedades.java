@@ -18,11 +18,20 @@ public class ServletObtenerResumenPropiedades extends HttpServlet {
     public ServletObtenerResumenPropiedades() {
     }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 NegocioPropiedad np = new NegocioPropiedad();
-		 List<Propiedad> propiedades = np.ObtenerResumenDePropiedades();
-		 request.getSession().setAttribute("Propiedades", propiedades);
-	     // Redirigir a index.jsp después de cargar los datos en la sesión
-	     response.sendRedirect(request.getContextPath() + "/index.jsp");
+		
+		NegocioPropiedad np = new NegocioPropiedad();
+		List<Propiedad> propiedades = np.ObtenerResumenDePropiedades();
+		request.getSession().setAttribute("Propiedades", propiedades);
+		String source = request.getParameter("source");
+		if (source != null && "admin".equals(source)) {
+			// Redirigir a /Administrador/listarPropiedades.jsp después de cargar los datos en la sesión
+		    response.sendRedirect(request.getContextPath() + "/Administrador/listarPropiedades.jsp");
+		}
+		else
+		{
+			// Redirigir a index.jsp después de cargar los datos en la sesión
+			response.sendRedirect(request.getContextPath() + "/index.jsp");
+		}
 	}
 
 	

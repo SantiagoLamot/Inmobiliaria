@@ -13,8 +13,7 @@
 <title>Inmobiliaria Paula Uzubiaga</title>
 </head>
 <body>
-
-<jsp:include page="menu.jsp" />
+<jsp:include page="menu.jsp"/>
 <div class="container mt-4">
     <h1 class="text-center" >Bienvenido</h1>
     <p class="text-center">Encuentra la propiedad de tus sueños con nosotros.</p>
@@ -33,9 +32,5 @@
         </c:forEach>
     </div>
 </div>
-
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
