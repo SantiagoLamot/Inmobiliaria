@@ -17,7 +17,7 @@
 	        <c:forEach var="Propiedad" items="${Propiedades}">
 	            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
 	                <div class="card h-100">
-	                    <img src="${Propiedad.getURLimagenPrincipal()}" class="card-img-top" alt="${Propiedad.getTitulo()}">
+	                    <img src="${pageContext.request.contextPath}/${Propiedad.getURLimagenPrincipal()}" class="card-img-top" alt="${Propiedad.getTitulo()}">
 	                    <div class="card-body">
 	                        <h5 class="card-title">${Propiedad.getTitulo()}</h5>
 	                        <p class="card-text">${Propiedad.getResenia()}</p>
