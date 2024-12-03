@@ -53,7 +53,7 @@ public class ServletGuardarPropiedad extends HttpServlet {
 			{
 				// Obtener la ruta absoluta de la aplicación web
 				String applicationPath = request.getServletContext().getRealPath("");
-				
+				System.out.println(applicationPath);
 				// Construir la ruta del directorio donde se guardarán los archivos subidos
 				String uploadFilePath = applicationPath + File.separator + UPLOAD_DIR;
 				

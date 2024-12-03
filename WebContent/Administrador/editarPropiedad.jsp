@@ -6,16 +6,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Inmobiliaria Paula Uzubiaga</title>
 <!-- Ajusta el diseño para móviles, adaptando el ancho al dispositivo y garantizando un comportamiento responsive. -->
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Editar Propiedad</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 <jsp:include page="menu.jsp" />
     <div class="container mt-4">
         <h1 class="text-center mb-4">Editar Propiedad</h1>
-        <form action="${pageContext.request.contextPath}/ServletActualizarPropiedad" method="post" enctype="multipart/form-data" class="form-inline">
+        <form action="${pageContext.request.contextPath}/ServletActualizarPropiedad?idP=${Propiedad.getId()}" method="post" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group mb-3">
@@ -58,11 +58,11 @@
             </div>
             <div class="row mt-4">
                 <div class="col-md-12 text-center">
-             		<p>${Propiedad.getId()}</p>
                     <button type="submit" name="btnGuardar" class="btn btn-primary">Guardar</button>
                 </div>
             </div>
         </form>
+        
         <form action="${pageContext.request.contextPath}/ServletEliminarImagen" method="get" enctype="multipart/form-data">
         	<div id="propertyCarousel" class="carousel slide" data-ride="carousel">
 				<div class="carousel-inner">

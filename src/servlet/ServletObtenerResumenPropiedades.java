@@ -23,7 +23,6 @@ public class ServletObtenerResumenPropiedades extends HttpServlet {
 		List<Propiedad> propiedades = np.ObtenerResumenDePropiedades();
 		request.getSession().setAttribute("Propiedades", propiedades);
 		String source = request.getParameter("source");
-		System.out.println(source);
 		if (source != null && "admin".equals(source)) {
 			// Redirigir a /Administrador/listarPropiedades.jsp después de cargar los datos en la sesión
 		    response.sendRedirect(request.getContextPath() + "/Administrador/listarPropiedades.jsp");

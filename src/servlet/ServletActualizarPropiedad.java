@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.UUID;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +17,10 @@ import entidades.*;
 import negocio.NegocioImagen;
 import negocio.NegocioPropiedad;
 @WebServlet("/ServletActualizarPropiedad")
+//IMPORTANTE CUANDO SE USA EL enctype="multipart/form-data" en el FORM DEL JSP, que permitte enviar archivos como img 
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB
+maxFileSize = 1024 * 1024 * 10,      // 10MB
+maxRequestSize = 1024 * 1024 * 50)   // 50MB
 public class ServletActualizarPropiedad extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String UPLOAD_DIR = "uploads";
@@ -28,10 +33,14 @@ public class ServletActualizarPropiedad extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String idS = request.getParameter("idPropiedad");	
-		System.out.println(idS);
+		String idS = request.getParameter("idP");
 		p.setId(Integer.parseInt(idS));
 		p.setTitulo(request.getParameter("txtTitulo"));
+		System.out.println("ID Propiedad: " + request.getParameter("idPropiedad"));
+		System.out.println("Título: " + request.getParameter("txtTitulo"));
+		System.out.println("Localidad: " + request.getParameter("txtLocalidad"));
+		System.out.println("Precio: " + request.getParameter("txtPrecio"));
+		System.out.println("Reseña: " + request.getParameter("txtResenia"));
 		p.setResenia(request.getParameter("txtResenia"));
 		p.setDescripcion(request.getParameter("txtDescripcion"));
 		p.setPrecio(request.getParameter("txtPrecio"));

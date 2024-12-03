@@ -121,7 +121,7 @@ public class DaoPropiedad {
 				pstmt.setString(4, p.getDescripcion());
 				pstmt.setString(5, p.getURLmaps());
 				pstmt.setString(6, p.getLocalidad());
-				pstmt.setInt(6, p.getId());
+				pstmt.setInt(7, p.getId());
 				
 				pstmt.executeUpdate();
 		    } catch (Exception e) {
