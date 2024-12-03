@@ -34,6 +34,13 @@
 		</div>
 	</c:forEach> 
 </div>               	
-                	
+<script>
+        document.addEventListener('keydown', function(event) {
+        if (event.ctrlKey && event.altKey && event.key === 'A') {
+        	// Ctrl + Alt + A para abrir el inicio de sesión del administrador
+            window.location.href = '<%= request.getContextPath() %>/adminLogin.jsp';
+            }
+        });
+</script>       	
 </body>
 </html>

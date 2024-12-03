@@ -67,17 +67,19 @@
         	<div id="propertyCarousel" class="carousel slide" data-ride="carousel">
 				<div class="carousel-inner">
 					<c:forEach var="imagen" items="${Propiedad.getImagenes()}" varStatus="status">
-						<div class="carousel-item ${status.first ? 'active' : ''}">
-					        <!-- Imagen -->
-					        <img src="${pageContext.request.contextPath}/${imagen.getURLimagen()}" class="d-block w-100" alt="Imagen de propiedad">
-					        <!-- Botón para eliminar imagen -->
-					        <div class="carousel-caption d-flex justify-content-center">
-					        	<button class="btn btn-danger btn-sm eliminar-imagen" data-imagen-url="${imagen}">Eliminar</button>
-					    	</div>
-						</div>
-						<input type="hidden" name="idImagen" value="${imagen.getIdImagen()}">
-						<input type="hidden" name="UrlImagen" value="${imagen.getURLimagen()}">
-						<input type="hidden" name="idPropiedad" value="${Propiedad.getId()}">
+					    <c:if test="${not empty imagen.getURLimagen()}">
+					        <div class="carousel-item ${status.first ? 'active' : ''}">
+					            <!-- Imagen -->
+					            <img src="${pageContext.request.contextPath}/${imagen.getURLimagen()}" class="d-block w-100" alt="Imagen de propiedad">
+					            <!-- Botón para eliminar imagen -->
+					            <div class="carousel-caption d-flex justify-content-center">
+					                <button class="btn btn-danger btn-sm eliminar-imagen" data-imagen-url="${imagen}">Eliminar</button>
+					            </div>
+					        </div>
+					        <input type="hidden" name="idImagen" value="${imagen.getIdImagen()}">
+					        <input type="hidden" name="UrlImagen" value="${imagen.getURLimagen()}">
+					        <input type="hidden" name="idPropiedad" value="${Propiedad.getId()}">
+					    </c:if>
 					</c:forEach>
 				</div>
 				<!-- Controles del carrusel -->

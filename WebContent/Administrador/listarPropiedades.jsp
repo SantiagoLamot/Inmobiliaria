@@ -11,13 +11,16 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
+<jsp:include page="menu.jsp" />
     <div class="container mt-4">
     <h1 class="text-center" >Editar propiedades</h1>
 	    <div class="row">
 	        <c:forEach var="Propiedad" items="${Propiedades}">
 	            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
 	                <div class="card h-100">
+	                    <c:if test="${not empty Propiedad.getURLimagenPrincipal()}">
 	                    <img src="${pageContext.request.contextPath}/${Propiedad.getURLimagenPrincipal()}" class="card-img-top" alt="${Propiedad.getTitulo()}">
+	                    </c:if>
 	                    <div class="card-body">
 	                        <h5 class="card-title">${Propiedad.getTitulo()}</h5>
 	                        <p class="card-text">${Propiedad.getResenia()}</p>

@@ -84,10 +84,7 @@ public class DaoPropiedad {
 			DaoConexion dc = new DaoConexion();
 			Connection cn = dc.getConnection();
 			
-			PreparedStatement pstmt = cn.prepareStatement("SELECT tb_propiedades.*, db_inmobiliaria.tb_imagenes.url FROM db_inmobiliaria.tb_propiedades " + 
-					"inner join db_inmobiliaria.tb_imagenes_propiedades on tb_propiedades.id = tb_imagenes_propiedades.id_propiedad " + 
-					"inner join db_inmobiliaria.tb_imagenes on tb_imagenes_propiedades.id_imagen = tb_imagenes.id " + 
-					"GROUP BY db_inmobiliaria.tb_propiedades.id;");
+			PreparedStatement pstmt = cn.prepareStatement("SELECT tb_propiedades.*, img_filtradas.url, img_filtradas.id AS idImagen FROM db_inmobiliaria.tb_propiedades LEFT JOIN (SELECT tb_imagenes.url, tb_imagenes.id, tb_imagenes_propiedades.id_propiedad FROM db_inmobiliaria.tb_imagenes INNER JOIN db_inmobiliaria.tb_imagenes_propiedades ON tb_imagenes.id = tb_imagenes_propiedades.id_imagen WHERE tb_imagenes.estado = 1) AS img_filtradas ON tb_propiedades.id = img_filtradas.id_propiedad GROUP BY tb_propiedades.id;");
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next())
 			{

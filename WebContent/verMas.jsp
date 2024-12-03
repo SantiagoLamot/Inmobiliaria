@@ -49,10 +49,12 @@
     <!-- Carrusel de imágenes -->
     <div id="propertyCarousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-            <c:forEach var="imagen" items="${Propiedad.getURLimagenes()}" varStatus="status">
-                <div class="carousel-item ${status.first ? 'active' : ''}">
-                    <img src="${imagen}" class="d-block w-100" alt="Imagen de propiedad">
-                </div>
+            <c:forEach var="imagen" items="${Propiedad.getImagenes()}" varStatus="status">
+                <c:if test="${not empty imagen.getURLimagen()}">
+                	<div class="carousel-item ${status.first ? 'active' : ''}">
+                   		<img src="${pageContext.request.contextPath}/${imagen.getURLimagen()}" class="d-block w-100" alt="Imagen de propiedad">
+              		</div>
+              	</c:if>
             </c:forEach>
         </div>
         <!-- Controles del carrusel -->

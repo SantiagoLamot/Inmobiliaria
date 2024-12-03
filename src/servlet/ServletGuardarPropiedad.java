@@ -65,15 +65,20 @@ public class ServletGuardarPropiedad extends HttpServlet {
 				
 				// Procesar cada parte del request (cada archivo subido)
 				for (Part part : request.getParts()) {
-					//Le agrego valores random al nombre asi no se repite nunca
-					String fileName = UUID.randomUUID().toString();
+					String fileType  = extractFileType(part);
+
 					
-					// Guardar el archivo en el directorio especificado
-					part.write(uploadFilePath + File.separator + fileName);
+					if (fileType != null && !fileType.isEmpty()) {
+						//Le agrego valores random al nombre asi no se repite nunca
+						String fileName = UUID.randomUUID().toString()+fileType;
 						
-					// Guardar la URL en la base de datos
-					i.setURLimagen(UPLOAD_DIR + "/" + fileName);
-					ni.RegistrarImagen(i);
+						// Guardar el archivo en el directorio especificado
+						part.write(uploadFilePath + File.separator + fileName);
+						
+						// Guardar la URL en la base de datos
+						i.setURLimagen(UPLOAD_DIR + "/" + fileName);
+						ni.RegistrarImagen(i);
+					}
 				}
 				HttpSession session = request.getSession(false);
 			    session.setAttribute("Mensaje", "Propiedad registrada exitosamente");
@@ -88,4 +93,21 @@ public class ServletGuardarPropiedad extends HttpServlet {
 			}
 	    }	
 	}
+	
+	
+	private String extractFileType(Part part) {
+	    String contentDisp = part.getHeader("content-disposition");
+	    String[] items = contentDisp.split(";");
+	    for (String s : items) {
+	        if (s.trim().startsWith("filename")) {
+	            String fileName = new File(s.substring(s.indexOf("=") + 2, s.length() - 1)).getName();
+	            if (fileName.contains(".")) {
+	                // Extrae la extensión del archivo (ejemplo: ".jpg")
+	                return fileName.substring(fileName.lastIndexOf(".")).toLowerCase();
+	            }
+	        }
+	    }
+	    return ""; // Si no se encuentra una extensión
+	}
+
 }

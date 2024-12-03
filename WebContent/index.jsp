@@ -21,7 +21,14 @@
         <c:forEach var="Propiedad" items="${Propiedades}">
             <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                 <div class="card h-100">
-                    <img src="${Propiedad.getURLimagenPrincipal()}" class="card-img-top" alt="${Propiedad.getTitulo()}">
+                    <c:choose>
+                    <c:when test="${not empty Propiedad.getURLimagenPrincipal()}">
+                        <img src="${Propiedad.getURLimagenPrincipal()}" class="card-img-top" alt="${Propiedad.getTitulo()}" width="300" height="300">
+                    </c:when>
+                    <c:otherwise>
+                        <img src="https://st.depositphotos.com/2934765/53192/v/380/depositphotos_531920820-stock-illustration-photo-available-vector-icon-default.jpg" class="card-img-top" alt="Imagen no disponible" width="300" height="300">
+                    </c:otherwise>
+               		 </c:choose>
                     <div class="card-body">
                         <h5 class="card-title">${Propiedad.getTitulo()}</h5>
                         <p class="card-text">${Propiedad.getResenia()}</p>
