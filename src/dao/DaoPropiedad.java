@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.mysql.jdbc.Statement;
 import dao.DaoConexion;
+import entidades.Imagen;
 import entidades.Propiedad;
 
 
@@ -51,10 +52,7 @@ public class DaoPropiedad {
 			DaoConexion dc = new DaoConexion();
 			Connection cn = dc.getConnection();
 			
-			PreparedStatement pstmt = cn.prepareStatement("SELECT db_inmobiliaria.tb_propiedades.*, db_inmobiliaria.tb_imagenes.url FROM db_inmobiliaria.tb_propiedades " + 
-					"inner join db_inmobiliaria.tb_imagenes_propiedades on tb_propiedades.id = tb_imagenes_propiedades.id_propiedad " + 
-					"inner join db_inmobiliaria.tb_imagenes on tb_imagenes_propiedades.id_imagen = tb_imagenes.id \r\n" + 
-					"where db_inmobiliaria.tb_propiedades.id = ?");
+			PreparedStatement pstmt = cn.prepareStatement("SELECT tb_propiedades.*, img_filtradas.url, img_filtradas.id AS idImagen FROM db_inmobiliaria.tb_propiedades LEFT JOIN (SELECT tb_imagenes.url, tb_imagenes.id, tb_imagenes_propiedades.id_propiedad FROM db_inmobiliaria.tb_imagenes INNER JOIN db_inmobiliaria.tb_imagenes_propiedades ON tb_imagenes.id = tb_imagenes_propiedades.id_imagen WHERE tb_imagenes.estado = 1) AS img_filtradas ON tb_propiedades.id = img_filtradas.id_propiedad WHERE tb_propiedades.id = ?;");
 			pstmt.setInt(1, id);
 			
 			ResultSet rs = pstmt.executeQuery();
@@ -67,11 +65,10 @@ public class DaoPropiedad {
 				p.setDescripcion(rs.getString("descripcion"));
 				p.setURLmaps(rs.getString("urlMaps"));
 				p.setLocalidad(rs.getString("localidad"));
-				p.addURLimagen(rs.getString("url"));
+				p.addImagen(new Imagen(rs.getInt("idImagen"), rs.getString("url")));
 				while (rs.next()) {
-					p.addURLimagen(rs.getString("url"));
+					p.addImagen(new Imagen(rs.getInt("idImagen"), rs.getString("url")));
 				} 
-				
 			}
 		}
 		catch (Exception e) {
@@ -110,4 +107,25 @@ public class DaoPropiedad {
 		return propiedades;
 	}
 	
+	
+	public void ActualizarPropiedad(Propiedad p) {
+		try {
+				DaoConexion dc = new DaoConexion();
+				Connection cn = dc.getConnection();
+				PreparedStatement pstmt = cn.prepareStatement("UPDATE `db_inmobiliaria`.`tb_propiedades` "
+						+ "SET `titulo`=?, `precio`=?, `resenia`=?, `descripcion`=?, `urlMaps`=?, `localidad`=? "
+						+ "WHERE `id`=?;");
+				pstmt.setString(1, p.getTitulo());
+				pstmt.setString(2, p.getPrecio());
+				pstmt.setString(3, p.getResenia());
+				pstmt.setString(4, p.getDescripcion());
+				pstmt.setString(5, p.getURLmaps());
+				pstmt.setString(6, p.getLocalidad());
+				pstmt.setInt(6, p.getId());
+				
+				pstmt.executeUpdate();
+		    } catch (Exception e) {
+		        System.out.print("Error registrando propiedad: " + e);
+		    }
+		}
 }

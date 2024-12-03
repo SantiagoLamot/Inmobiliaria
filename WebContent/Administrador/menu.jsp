@@ -19,21 +19,25 @@
                 <a class="nav-link" href="${pageContext.request.contextPath}/Administrador/principalAdministrador.jsp">Inicio</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="${pageContext.request.contextPath}/ServletObtenerResumenPropiedades?source=admin">Editar Propiedades</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="${pageContext.request.contextPath}/Administrador/AgregarPropiedad.jsp">Agregar propiedad</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="${pageContext.request.contextPath}/ServletEditarServicios">Editar servicios</a>
+                <a class="nav-link" href="${pageContext.request.contextPath}/ServletObtenerResumenPropiedades?source=admin">Editar propiedades</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="${pageContext.request.contextPath}/ServletEditarContactos">Editar contactos</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="${pageContext.request.contextPath}/ServletEditarServicios">Editar servicios</a>
+            </li>
         </ul>
     </div>
 </nav>
+<<<<<<< Updated upstream
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+=======
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+>>>>>>> Stashed changes
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>

@@ -13,7 +13,7 @@ public class NegocioPropiedad {
 		return daop.RegistrarPropiedad(p);
 	}
 	
-	public Propiedad ObtenerropiedadConImagenes(int id)
+	public Propiedad ObtenerPropiedadConImagenes(int id)
 	{
 		return daop.ObtenerPropiedadConImagenes(id);
 	}
@@ -21,5 +21,11 @@ public class NegocioPropiedad {
 	public List<Propiedad> ObtenerResumenDePropiedades()
 	{
 		return daop.ObtenerResumenPropiedades();
+	}
+	
+	public void ActualizarPropiedad(Propiedad p)
+	{
+		daop.ActualizarPropiedad(p);
+		return;
 	}
 }

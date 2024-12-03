@@ -48,4 +48,18 @@ public class DaoImagen {
 	    }  	
 	}
 	
+	public void bajaLogImagen(int id)
+	{
+		try {
+			DaoConexion dc = new DaoConexion();
+			Connection cn = dc.getConnection();
+			PreparedStatement pstmt = cn.prepareStatement("UPDATE `db_inmobiliaria`.`tb_imagenes` SET `estado`='0' WHERE tb_imagenes.id = ?");
+			pstmt.setInt(1, id);
+			pstmt.executeUpdate();
+		
+	    } catch (Exception e) {
+	        System.out.print("Error registrando baja de imagen: " + e);
+	    }  	
+	}
+	
 }

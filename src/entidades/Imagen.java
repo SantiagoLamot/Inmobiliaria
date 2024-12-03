@@ -11,9 +11,9 @@ public class Imagen {
 	}
 
 
-	public Imagen(int idPropiedad, String uRLimagen) {
+	public Imagen(int idImagen, String uRLimagen) {
 		super();
-		IdPropiedad = idPropiedad;
+		IdImagen= idImagen;
 		URLimagen = uRLimagen;
 	}
 

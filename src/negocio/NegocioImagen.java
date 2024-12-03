@@ -5,10 +5,17 @@ import entidades.*;
 
 public class NegocioImagen {
 	
+	DaoImagen di = new DaoImagen();
 	public void RegistrarImagen(Imagen i)
 	{
-		DaoImagen di = new DaoImagen();
 		di.GrabarImagen(i);
+		return;
+	}
+	
+	public void bajaLogImagen(int id)
+	{
+		di.bajaLogImagen(id);
+		return;
 	}
 
 }

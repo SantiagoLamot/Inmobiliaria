@@ -12,7 +12,7 @@ public class Propiedad {
 	private String Resenia;
 	private String Descripcion;
 	private String URLmaps;
-	private List<String> URLimagenes = new ArrayList<>();;
+	private List<Imagen> Imagenes = new ArrayList<>();;
 	
 	public Propiedad() {
 		super();
@@ -105,16 +105,16 @@ public class Propiedad {
 		URLmaps = urlMaps;
 	}
 
-	public List<String> getURLimagenes() {
-		return URLimagenes;
+	public List<Imagen> getImagenes() {
+		return Imagenes;
 	}
 
-	public void setURLimagenes(List<String> uRLimagenes) {
-		URLimagenes = uRLimagenes;
+	public void setImagen(List<Imagen> imagenes) {
+		Imagenes = imagenes;
 	}
 	
-	public void addURLimagen(String url) {
-	    this.URLimagenes.add(url);
+	public void addImagen(Imagen i) {
+	    this.Imagenes.add(i);
 	}
 	
 }

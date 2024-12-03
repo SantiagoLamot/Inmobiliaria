@@ -21,7 +21,7 @@
 	                    <div class="card-body">
 	                        <h5 class="card-title">${Propiedad.getTitulo()}</h5>
 	                        <p class="card-text">${Propiedad.getResenia()}</p>
-	                        <a href="${pageContext.request.contextPath}/ServletPropiedadCompleta?id=${Propiedad.getId()}" class="btn btn-primary">Editar</a>
+	                        <a href="${pageContext.request.contextPath}/ServletPropiedadCompleta?id=${Propiedad.getId()}&source=admin" class="btn btn-primary">Editar</a>
 	                    </div>
 	                </div>
 	            </div>

@@ -23,8 +23,17 @@ public class ServletPropiedadCompleta extends HttpServlet {
 		String idPropiedad = request.getParameter("id");
 		int id = Integer.parseInt(idPropiedad);
 		session.setAttribute("UrlWhatsapp", nc.ObtenerUrlWhatsapp());
-		session.setAttribute("Propiedad", np.ObtenerropiedadConImagenes(id));
-		response.sendRedirect(request.getContextPath() + "/verMas.jsp");
+		session.setAttribute("Propiedad", np.ObtenerPropiedadConImagenes(id));
+		String source = request.getParameter("source");
+		if (source != null && "admin".equals(source)) {
+			// Redirigir a /Administrador/editarPropiedad.jsp después de cargar los datos en la sesión
+		    response.sendRedirect(request.getContextPath() + "/Administrador/editarPropiedad.jsp");
+		}
+		else
+		{
+			// Redirigir a verMas.jsp después de cargar los datos en la sesión
+			response.sendRedirect(request.getContextPath() + "/verMas.jsp");
+		}
 		return;
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
