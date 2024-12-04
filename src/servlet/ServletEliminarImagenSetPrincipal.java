@@ -10,11 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import entidades.Propiedad;
 import negocio.NegocioImagen;
+import negocio.NegocioPropiedad;
 @WebServlet("/ServletEliminarImagenSetPrincipal")
 public class ServletEliminarImagenSetPrincipal extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	NegocioImagen ni = new NegocioImagen();
+	NegocioPropiedad np = new NegocioPropiedad();
 	
 	public ServletEliminarImagenSetPrincipal() {
     }
@@ -53,6 +55,7 @@ public class ServletEliminarImagenSetPrincipal extends HttpServlet {
 		}
 		else if (btnSetPrincipal != null) {
 			Propiedad p = new Propiedad(idPropiedad, idImagen);
+			np.ActualizarImagenPrincipal(p);
 	    }
 		
 	    // Redirigir al usuario después de completar la operación

@@ -28,4 +28,10 @@ public class NegocioPropiedad {
 		daop.ActualizarPropiedad(p);
 		return;
 	}
+	
+	public void ActualizarImagenPrincipal(Propiedad p)
+	{
+		daop.ActualizarImagenPrincipal(p);
+		return;
+	}
 }
