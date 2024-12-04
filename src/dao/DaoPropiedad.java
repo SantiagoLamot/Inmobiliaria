@@ -84,7 +84,10 @@ public class DaoPropiedad {
 			DaoConexion dc = new DaoConexion();
 			Connection cn = dc.getConnection();
 			
-			PreparedStatement pstmt = cn.prepareStatement("SELECT tb_propiedades.*, img_filtradas.url, img_filtradas.id AS idImagen FROM db_inmobiliaria.tb_propiedades LEFT JOIN (SELECT tb_imagenes.url, tb_imagenes.id, tb_imagenes_propiedades.id_propiedad FROM db_inmobiliaria.tb_imagenes INNER JOIN db_inmobiliaria.tb_imagenes_propiedades ON tb_imagenes.id = tb_imagenes_propiedades.id_imagen WHERE tb_imagenes.estado = 1) AS img_filtradas ON tb_propiedades.id = img_filtradas.id_propiedad GROUP BY tb_propiedades.id;");
+			PreparedStatement pstmt = cn.prepareStatement("SELECT tb_propiedades.*, tb_imagenes.url AS urlImagenPrin "
+					+ "FROM db_inmobiliaria.tb_propiedades "
+					+ "LEFT JOIN db_inmobiliaria.tb_imagenes ON tb_imagenes.id = tb_propiedades.idImagenPrincipal "
+					+ "GROUP BY tb_propiedades.id;");
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next())
 			{
@@ -92,7 +95,7 @@ public class DaoPropiedad {
 				p.setId(rs.getInt("id"));
 				p.setTitulo(rs.getString("titulo"));
 				p.setResenia(rs.getString("resenia"));
-				p.setURLimagenPrincipal(rs.getString("url"));
+				p.setURLimagenPrincipal(rs.getString("urlImagenPrin"));
 				p.setLocalidad(rs.getString("localidad"));
 				p.setLocalidad(rs.getString("urlMaps"));
 				propiedades.add(p);
@@ -135,6 +138,20 @@ public class DaoPropiedad {
 			pstmt.setInt(1, p.getIdImagenPrincipal());
 			pstmt.setInt(2, p.getId());
 			
+			pstmt.executeUpdate();
+		} 
+		catch (Exception e) {
+	        System.out.print("Error registrando id propiedad principal: " + e);
+		}
+	}
+	
+	public void BajaLogicaPropiedad(int id)
+	{
+		try {
+			DaoConexion dc = new DaoConexion();
+			Connection cn = dc.getConnection();
+			PreparedStatement pstmt = cn.prepareStatement("UPDATE `db_inmobiliaria`.`tb_propiedades` SET `estado`=0 WHERE `id`=?;");
+			pstmt.setInt(1, id);
 			pstmt.executeUpdate();
 		} 
 		catch (Exception e) {

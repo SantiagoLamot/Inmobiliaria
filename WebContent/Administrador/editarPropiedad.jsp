@@ -14,7 +14,14 @@
 <body>
 <jsp:include page="menu.jsp" />
     <div class="container mt-4">
-        <h1 class="text-center mb-4">Editar Propiedad</h1>
+        <form action="${pageContext.request.contextPath}/ServletEliminarPropiedad?idP=${Propiedad.getId()}" method="post">
+       		<h1 class="text-center mb-4">Editar Propiedad</h1>
+       		<div class="row mt-4">
+                <div class="col-md-12 text-center">
+                    <button type="submit" name="btnEliminarPropiedad" class="btn btn-danger btn-sm">Eliminar Propiedad</button>
+                </div>
+            </div>
+        </form>
         <form action="${pageContext.request.contextPath}/ServletActualizarPropiedad?idP=${Propiedad.getId()}" method="post" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-md-6">

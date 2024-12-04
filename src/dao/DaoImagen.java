@@ -3,6 +3,8 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.mysql.jdbc.Statement;
 
@@ -62,4 +64,25 @@ public class DaoImagen {
 	    }  	
 	}
 	
+	public List<String> ObtenerListaImagenes(int id)
+	{
+		List<String> listaURL = new ArrayList<>();
+		try {
+			DaoConexion dc = new DaoConexion();
+			Connection cn = dc.getConnection();
+			PreparedStatement pstmt = cn.prepareStatement("SELECT tb_imagenes.url FROM db_inmobiliaria.tb_imagenes "
+					+ "left join db_inmobiliaria.tb_imagenes_propiedades on tb_imagenes.id = tb_imagenes_propiedades.id_imagen "
+					+ "left join db_inmobiliaria.tb_propiedades on tb_imagenes_propiedades.id_propiedad = tb_propiedades.id "
+					+ "where tb_propiedades.id = ?;");
+			pstmt.setInt(1, id);
+			
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				listaURL.add(rs.getString("url"));
+	        }
+	    } catch (Exception e) {
+	        System.out.print("Error buscando imagenes a borrar: " + e);
+	    }
+		return listaURL;
+	}
 }

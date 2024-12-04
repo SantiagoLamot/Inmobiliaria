@@ -1,5 +1,7 @@
 package negocio;
 
+import java.util.List;
+
 import dao.*;
 import entidades.*;
 
@@ -16,6 +18,10 @@ public class NegocioImagen {
 	{
 		di.bajaLogImagen(id);
 		return;
+	}
+	public List<String> ObtenerImagenes(int id)
+	{
+		return di.ObtenerListaImagenes(id);
 	}
 
 }

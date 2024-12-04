@@ -34,4 +34,10 @@ public class NegocioPropiedad {
 		daop.ActualizarImagenPrincipal(p);
 		return;
 	}
+	
+	public void BajaLogicaPropiedad(int id)
+	{
+		daop.BajaLogicaPropiedad(id);
+		return;
+	}
 }
