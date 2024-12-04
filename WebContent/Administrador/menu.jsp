@@ -30,6 +30,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="${pageContext.request.contextPath}/ServletEditarServicios">Editar servicios</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="${pageContext.request.contextPath}/ServletCerrarSesion">Cerrar Sesion</a>
+            </li>
         </ul>
     </div>
 </nav>

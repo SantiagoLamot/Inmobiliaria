@@ -52,7 +52,7 @@
                 <div class="col-md-6">
                     <div class="form-group mb-3">
                         <label for="fImagen">Imágenes (selecciona varias)</label>
-                        <input type="file" name="fImagen" id="fImagen" multiple required class="form-control-file">
+                        <input type="file" name="fImagen" id="fImagen" multiple class="form-control-file">
                     </div>
                 </div>
             </div>

@@ -29,6 +29,7 @@
                     <div class="row mt-4">
 	                	<div class="col-md-12 text-center">
 	                   		<button type="submit" name="btnIniciarSesion" class="btn btn-primary">Iniciar sesion</button>
+	                		<p>${Mensaje}</p>
 	                	</div>
             		</div>
             	</div>

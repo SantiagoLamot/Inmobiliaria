@@ -36,11 +36,6 @@ public class ServletActualizarPropiedad extends HttpServlet {
 		String idS = request.getParameter("idP");
 		p.setId(Integer.parseInt(idS));
 		p.setTitulo(request.getParameter("txtTitulo"));
-		System.out.println("ID Propiedad: " + request.getParameter("idPropiedad"));
-		System.out.println("Título: " + request.getParameter("txtTitulo"));
-		System.out.println("Localidad: " + request.getParameter("txtLocalidad"));
-		System.out.println("Precio: " + request.getParameter("txtPrecio"));
-		System.out.println("Reseña: " + request.getParameter("txtResenia"));
 		p.setResenia(request.getParameter("txtResenia"));
 		p.setDescripcion(request.getParameter("txtDescripcion"));
 		p.setPrecio(request.getParameter("txtPrecio"));
@@ -54,7 +49,6 @@ public class ServletActualizarPropiedad extends HttpServlet {
 		{
 			// Obtener la ruta absoluta de la aplicación web
 			String applicationPath = request.getServletContext().getRealPath("");
-			System.out.println(applicationPath);
 			// Construir la ruta del directorio donde se guardarán los archivos subidos
 			String uploadFilePath = applicationPath + File.separator + UPLOAD_DIR;
 			
