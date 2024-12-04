@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Propiedad {
 	private int Id;
+	private int IdImagenPrincipal;
 	private String Titulo;
 	private String Localidad;
 	private String URLimagenPrincipal;
@@ -17,6 +18,14 @@ public class Propiedad {
 	public Propiedad() {
 		super();
 	}
+	
+	
+	public Propiedad(int id, int idImagenPrincipal) {
+		super();
+		Id = id;
+		IdImagenPrincipal = idImagenPrincipal;
+	}
+
 
 	public Propiedad(String titulo, String localidad,String uRLimagen, String resenia, String descripcion,
 			String urlMaps) {
@@ -115,6 +124,14 @@ public class Propiedad {
 	
 	public void addImagen(Imagen i) {
 	    this.Imagenes.add(i);
+	}
+
+	public int getIdImagenPrincipal() {
+		return IdImagenPrincipal;
+	}
+
+	public void setIdImagenPrincipal(int idImagenPrincipal) {
+		IdImagenPrincipal = idImagenPrincipal;
 	}
 	
 }

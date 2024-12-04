@@ -29,8 +29,9 @@ public class ServletObtenerResumenPropiedades extends HttpServlet {
 		}
 		else
 		{
-			// Redirigir a index.jsp después de cargar los datos en la sesión
+//			 Redirigir a index.jsp después de cargar los datos en la sesión
 			response.sendRedirect(request.getContextPath() + "/index.jsp");
+			return;
 		}
 	}
 

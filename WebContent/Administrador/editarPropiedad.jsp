@@ -63,7 +63,7 @@
             </div>
         </form>
         
-        <form action="${pageContext.request.contextPath}/ServletEliminarImagen" method="get" enctype="multipart/form-data">
+        <form action="${pageContext.request.contextPath}/ServletEliminarImagenSetPrincipal" method="get" enctype="multipart/form-data">
         	<div id="propertyCarousel" class="carousel slide" data-ride="carousel">
 				<div class="carousel-inner">
 					<c:forEach var="imagen" items="${Propiedad.getImagenes()}" varStatus="status">
@@ -73,7 +73,8 @@
 					            <img src="${pageContext.request.contextPath}/${imagen.getURLimagen()}" class="d-block w-100" alt="Imagen de propiedad">
 					            <!-- Botón para eliminar imagen -->
 					            <div class="carousel-caption d-flex justify-content-center">
-					                <button class="btn btn-danger btn-sm eliminar-imagen" data-imagen-url="${imagen}">Eliminar</button>
+					                <button type="submit" name="btnEliminar" class="btn btn-danger btn-sm eliminar-imagen" data-imagen-url="${imagen}">Eliminar</button>
+					           		<button type="submit" name="btnSetPrincipal" class="btn btn-primary">Elegir como principal</button>
 					            </div>
 					        </div>
 					        <input type="hidden" name="idImagen" value="${imagen.getIdImagen()}">

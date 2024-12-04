@@ -11,7 +11,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebFilter("/index.jsp")
+@WebFilter("")
 public class FiltroIndex implements Filter {
 
     public FiltroIndex() {
@@ -27,8 +27,7 @@ public class FiltroIndex implements Filter {
         System.out.println("Entro al filtro index");
         // Redirigir al servlet que me carga el resumend de propieda deseado
         httpResponse.sendRedirect(httpRequest.getContextPath() + "/ServletObtenerResumenPropiedades");
-//		// pass the request along the filter chain
-//		chain.doFilter(request, response);
+		return;
 	}
 
 	public void init(FilterConfig fConfig) throws ServletException {

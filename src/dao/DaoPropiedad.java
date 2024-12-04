@@ -121,8 +121,24 @@ public class DaoPropiedad {
 				pstmt.setInt(7, p.getId());
 				
 				pstmt.executeUpdate();
-		    } catch (Exception e) {
+		 } catch (Exception e) {
 		        System.out.print("Error registrando propiedad: " + e);
-		    }
 		}
+	}
+	
+	public void ActualizarImagenPrincipal(Propiedad p)
+	{
+		try {
+			DaoConexion dc = new DaoConexion();
+			Connection cn = dc.getConnection();
+			PreparedStatement pstmt = cn.prepareStatement("UPDATE `db_inmobiliaria`.`tb_propiedades` SET `idImagenPrincipal`=? WHERE `id`=?;");
+			pstmt.setInt(1, p.getIdImagenPrincipal());
+			pstmt.setInt(2, p.getId());
+			
+			pstmt.executeUpdate();
+		} 
+		catch (Exception e) {
+	        System.out.print("Error registrando id propiedad principal: " + e);
+		}
+	}
 }
