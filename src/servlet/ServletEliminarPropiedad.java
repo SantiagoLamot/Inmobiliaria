@@ -43,6 +43,8 @@ public class ServletEliminarPropiedad extends HttpServlet {
 			} else {
 				response.getWriter().write("El archivo no existe.");
 			}
-		} 
+		}
+		// Redirigir al usuario después de completar la operación
+	    response.sendRedirect(request.getContextPath() + "/ServletObtenerResumenPropiedades?source=admin");
 	}
 }

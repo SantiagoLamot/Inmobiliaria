@@ -55,6 +55,8 @@ public class ServletEliminarImagenSetPrincipal extends HttpServlet {
 		}
 		else if (btnSetPrincipal != null) {
 			Propiedad p = new Propiedad(idPropiedad, idImagen);
+			System.out.println("Id Propeidad:"+idPropiedad);
+			System.out.println("Id Imagen seleccionada:"+idImagen);
 			np.ActualizarImagenPrincipal(p);
 	    }
 		

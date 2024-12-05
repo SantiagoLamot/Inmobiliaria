@@ -70,37 +70,38 @@
             </div>
         </form>
         
-        <form action="${pageContext.request.contextPath}/ServletEliminarImagenSetPrincipal" method="get" enctype="multipart/form-data">
-        	<div id="propertyCarousel" class="carousel slide" data-ride="carousel">
-				<div class="carousel-inner">
-					<c:forEach var="imagen" items="${Propiedad.getImagenes()}" varStatus="status">
-					    <c:if test="${not empty imagen.getURLimagen()}">
-					        <div class="carousel-item ${status.first ? 'active' : ''}">
-					            <!-- Imagen -->
-					            <img src="${pageContext.request.contextPath}/${imagen.getURLimagen()}" class="d-block w-100" alt="Imagen de propiedad">
-					            <!-- Botón para eliminar imagen -->
-					            <div class="carousel-caption d-flex justify-content-center">
-					                <button type="submit" name="btnEliminar" class="btn btn-danger btn-sm eliminar-imagen" data-imagen-url="${imagen}">Eliminar</button>
-					           		<button type="submit" name="btnSetPrincipal" class="btn btn-primary">Elegir como principal</button>
-					            </div>
-					        </div>
-					        <input type="hidden" name="idImagen" value="${imagen.getIdImagen()}">
-					        <input type="hidden" name="UrlImagen" value="${imagen.getURLimagen()}">
-					        <input type="hidden" name="idPropiedad" value="${Propiedad.getId()}">
-					    </c:if>
-					</c:forEach>
-				</div>
-				<!-- Controles del carrusel -->
-			    <a class="carousel-control-prev" href="#propertyCarousel" role="button" data-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="sr-only">Anterior</span>
-				</a>
-				<a class="carousel-control-next" href="#propertyCarousel" role="button" data-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="sr-only">Siguiente</span>
-				</a>
-			</div>
-        </form>
+      <div id="propertyCarousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <c:forEach var="imagen" items="${Propiedad.getImagenes()}" varStatus="status">
+            <c:if test="${not empty imagen.getURLimagen()}">
+                <div class="carousel-item ${status.first ? 'active' : ''}">
+                    <!-- Imagen -->
+                    <img src="${pageContext.request.contextPath}/${imagen.getURLimagen()}" class="d-block w-100" alt="Imagen de propiedad">
+
+                    <div class="carousel-caption d-flex justify-content-center">
+                        <form action="${pageContext.request.contextPath}/ServletEliminarImagenSetPrincipal" method="get" class="mr-2">
+                            <input type="hidden" name="idImagen" value="${imagen.getIdImagen()}">
+                            <input type="hidden" name="UrlImagen" value="${imagen.getURLimagen()}">
+                            <input type="hidden" name="idPropiedad" value="${Propiedad.getId()}">
+                            <button type="submit" name="btnEliminar" class="btn btn-danger btn-sm">Eliminar</button>
+                            <button type="submit" name="btnSetPrincipal" class="btn btn-primary btn-sm">Elegir como principal</button>
+                        </form>
+                    </div>
+                </div>
+            </c:if>
+        </c:forEach>
+    </div>
+
+    <!-- Controles del carrusel -->
+    <a class="carousel-control-prev" href="#propertyCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Anterior</span>
+    </a>
+    <a class="carousel-control-next" href="#propertyCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Siguiente</span>
+    </a>
+</div>
     </div>
 </body>
 </html>

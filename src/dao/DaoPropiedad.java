@@ -87,6 +87,7 @@ public class DaoPropiedad {
 			PreparedStatement pstmt = cn.prepareStatement("SELECT tb_propiedades.*, tb_imagenes.url AS urlImagenPrin "
 					+ "FROM db_inmobiliaria.tb_propiedades "
 					+ "LEFT JOIN db_inmobiliaria.tb_imagenes ON tb_imagenes.id = tb_propiedades.idImagenPrincipal "
+					+ "WHERE tb_propiedades.estado = 1 "
 					+ "GROUP BY tb_propiedades.id;");
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next())
