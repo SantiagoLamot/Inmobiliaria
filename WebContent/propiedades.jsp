@@ -10,14 +10,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!-- Bootstrap -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<title>Inmobiliaria Paula Uzubiaga</title>
+<title>Propiedades</title>
 </head>
 <body>
 <jsp:include page="menu.jsp"/>
 <c:import url="/ServletObtenerResumenPropiedades" />
 <div class="container mt-4">
-    <h1 class="text-center" >Bienvenido</h1>
-    <p class="text-center">Encuentra la propiedad de tus sueños con nosotros.</p>
+    <h3 class="text-center" >Nuestras propiedades.</h3>
     <div class="row">
         <c:forEach var="Propiedad" items="${Propiedades}">
             <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
@@ -32,9 +31,7 @@
                		 </c:choose>
                     <div class="card-body">
                         <h5 class="card-title">${Propiedad.getTitulo()}</h5>
-                        <p>
-    						<c:out value="${Propiedad.getResenia()}" escapeXml="false" />
-						</p>
+                        <p class="card-text">${Propiedad.getResenia()}</p>
                         <a href="${pageContext.request.contextPath}/ServletPropiedadCompleta?id=${Propiedad.getId()}" class="btn btn-primary">Ver más</a>
                     </div>
                 </div>

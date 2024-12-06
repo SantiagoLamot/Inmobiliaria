@@ -16,6 +16,7 @@
 </head>
 <body>
 <jsp:include page="menu.jsp"/>
+
 <div class="container mt-4">
     <div class="row mb-4">
 		<div class="col-md-12 centrar">
@@ -72,7 +73,7 @@
             </iframe>
         </div>
     </div>
-			                
 </div>
+<jsp:include page="footer.jsp" />	                
 </body>
 </html>

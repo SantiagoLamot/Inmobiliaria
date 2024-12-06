@@ -19,8 +19,9 @@ public class DaoPropiedad {
 		try {
 				DaoConexion dc = new DaoConexion();
 				Connection cn = dc.getConnection();
+
 				PreparedStatement pstmt = cn.prepareStatement("INSERT INTO `db_inmobiliaria`.`tb_propiedades` "
-						+ "(`titulo`, `precio`, `resenia`, `descripcion`, `urlMaps`, `localidad`) VALUES (?, ?, ?, ?, ?, ?);",
+						+ "(`titulo`, `precio`, `resenia`, `descripcion`, `urlMaps`, `localidad`, `fechaUltMod`) VALUES (?, ?, ?, ?, ?, ?, ?);",
 						Statement.RETURN_GENERATED_KEYS);
 				// Statement.RETURN_GENERATED_KEYS: Esto indica al driver de la base de datos que queremos recuperar las claves generadas automáticamente.
 				pstmt.setString(1, p.getTitulo());
@@ -29,6 +30,13 @@ public class DaoPropiedad {
 				pstmt.setString(4, p.getDescripcion());
 				pstmt.setString(5, p.getURLmaps());
 				pstmt.setString(6, p.getLocalidad());
+				// Obtenir la fecha y hora actual
+				java.util.Date ahora = new java.util.Date();
+
+				// Convertir java.util.Date a java.sql.Timestamp
+				java.sql.Timestamp fechaActual = new java.sql.Timestamp(ahora.getTime());
+
+				pstmt.setTimestamp(7, fechaActual);
 				
 				int r = pstmt.executeUpdate();
 				if (r > 0) {
@@ -88,7 +96,8 @@ public class DaoPropiedad {
 					+ "FROM db_inmobiliaria.tb_propiedades "
 					+ "LEFT JOIN db_inmobiliaria.tb_imagenes ON tb_imagenes.id = tb_propiedades.idImagenPrincipal "
 					+ "WHERE tb_propiedades.estado = 1 "
-					+ "GROUP BY tb_propiedades.id;");
+					+ "ORDER BY "
+					+ "tb_propiedades.fechaUltMod DESC;");
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next())
 			{
@@ -114,7 +123,7 @@ public class DaoPropiedad {
 				DaoConexion dc = new DaoConexion();
 				Connection cn = dc.getConnection();
 				PreparedStatement pstmt = cn.prepareStatement("UPDATE `db_inmobiliaria`.`tb_propiedades` "
-						+ "SET `titulo`=?, `precio`=?, `resenia`=?, `descripcion`=?, `urlMaps`=?, `localidad`=? "
+						+ "SET `titulo`=?, `precio`=?, `resenia`=?, `descripcion`=?, `urlMaps`=?, `localidad`=?, `fechaUltMod`=? "
 						+ "WHERE `id`=?;");
 				pstmt.setString(1, p.getTitulo());
 				pstmt.setString(2, p.getPrecio());
@@ -122,7 +131,14 @@ public class DaoPropiedad {
 				pstmt.setString(4, p.getDescripcion());
 				pstmt.setString(5, p.getURLmaps());
 				pstmt.setString(6, p.getLocalidad());
-				pstmt.setInt(7, p.getId());
+				// Obtenir la fecha y hora actual
+				java.util.Date ahora = new java.util.Date();
+
+				// Convertir java.util.Date a java.sql.Timestamp
+				java.sql.Timestamp fechaActual = new java.sql.Timestamp(ahora.getTime());
+
+				pstmt.setTimestamp(7, fechaActual);
+				pstmt.setInt(8, p.getId());
 				
 				pstmt.executeUpdate();
 		 } catch (Exception e) {
@@ -135,9 +151,17 @@ public class DaoPropiedad {
 		try {
 			DaoConexion dc = new DaoConexion();
 			Connection cn = dc.getConnection();
-			PreparedStatement pstmt = cn.prepareStatement("UPDATE `db_inmobiliaria`.`tb_propiedades` SET `idImagenPrincipal`=? WHERE `id`=?;");
+			PreparedStatement pstmt = cn.prepareStatement("UPDATE `db_inmobiliaria`.`tb_propiedades` SET `idImagenPrincipal`=?, `fechaUltMod`=?  WHERE `id`=?;");
 			pstmt.setInt(1, p.getIdImagenPrincipal());
-			pstmt.setInt(2, p.getId());
+			// Obtenir la fecha y hora actual
+			java.util.Date ahora = new java.util.Date();
+
+			// Convertir java.util.Date a java.sql.Timestamp
+			java.sql.Timestamp fechaActual = new java.sql.Timestamp(ahora.getTime());
+
+			pstmt.setTimestamp(2, fechaActual);
+
+			pstmt.setInt(3, p.getId());
 			
 			pstmt.executeUpdate();
 		} 

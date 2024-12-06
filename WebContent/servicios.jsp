@@ -41,6 +41,8 @@
             window.location.href = '<%= request.getContextPath() %>/adminLogin.jsp';
             }
         });
-</script>       	
+</script> 
+
+<jsp:include page="footer.jsp" />      	
 </body>
 </html>

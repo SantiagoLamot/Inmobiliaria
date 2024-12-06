@@ -18,7 +18,6 @@ public class ServletObtenerResumenPropiedades extends HttpServlet {
     public ServletObtenerResumenPropiedades() {
     }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		NegocioPropiedad np = new NegocioPropiedad();
 		List<Propiedad> propiedades = np.ObtenerResumenDePropiedades();
 		request.getSession().setAttribute("Propiedades", propiedades);
