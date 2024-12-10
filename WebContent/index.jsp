@@ -49,7 +49,7 @@
     </div>
    <div class="row" style="display: flex; justify-content: center; align-items: center; height: 100%;">
 	    <div class="col-lg-4 col-md-6 col-sm-12 mb-4" style="display: flex; justify-content: center; align-items: center; height: 100%;">
-	        <a href="${pageContext.request.contextPath}/propiedades.jsp" class="btn btn-primary" style="display: flex; justify-content: center; align-items: center;">Ver todas las propiedades</a>
+	        <a href="${pageContext.request.contextPath}/ServletObtenerPropiedadesPaginadas?page=1" class="btn btn-primary" style="display: flex; justify-content: center; align-items: center;">Ver todas las propiedades</a>
 	    </div>
 	</div>
 </div>

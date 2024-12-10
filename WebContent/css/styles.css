@@ -10,7 +10,23 @@ a.btn.btn-primary:hover {
 }
 
 
+
+a.btn.btn-pagination {
+    background-color: #72806B !important; /* Color de fondo */
+    border-color: #72806B !important; /* Color del borde */
+    color: white !important; /* Color del texto */
+    padding: 5px 10px !important; /* Menos relleno */
+    margin: 2px !important; /* Menos margen */
+}
+
+a.btn.btn-pagination:hover {
+    background-color: #63725B !important; /* Un tono más oscuro para el hover */
+    border-color: #55694E !important; /* Un tono más oscuro para el hover */
+}
+
+
 /* color de fonde pie de pagina */
 .text-center.p-3.bg-secondary.text-white.custom-bg {
     background-color: #72806B !important;
 }
+

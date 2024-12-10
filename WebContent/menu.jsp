@@ -35,7 +35,7 @@
                     <a class="nav-link" href="${pageContext.request.contextPath}">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/propiedades.jsp">Propiedades</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/ServletObtenerPropiedadesPaginadas?page=1">Propiedades</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="${pageContext.request.contextPath}/ServletServicios">Servicios</a>

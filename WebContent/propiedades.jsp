@@ -16,11 +16,10 @@
 </head>
 <body>
 <jsp:include page="menu.jsp"/>
-<c:import url="/ServletObtenerResumenPropiedades" />
 <div class="container mt-4">
     <h3 class="text-center" >Nuestras propiedades.</h3>
     <div class="row">
-        <c:forEach var="Propiedad" items="${Propiedades}">
+        <c:forEach var="Propiedad" items="${propiedadesPaginadas}">
             <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                 <div class="card h-100">
                     <c:choose>
@@ -40,6 +39,32 @@
             </div>
         </c:forEach>
     </div>
+        <!-- paginacion -->
+        <div class="row" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+	    	<div class="col-lg-4 col-md-6 col-sm-12 mb-4" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+		        <nav>
+			    <ul class="pagination justify-content-center">
+			        <c:if test="${currentPage > 1}">
+			            <li class="page-item">
+			                <a class="a btn btn-pagination" href="${pageContext.request.contextPath}/ServletObtenerPropiedadesPaginadas?page=${currentPage - 1}">&laquo; Anterior</a>
+			            </li>
+			        </c:if>
+			        <c:forEach begin="1" end="${totalPages}" var="i">
+			            <li class="page-item ${i == currentPage ? 'active' : ''}">
+			                <a class="a btn btn-pagination" href="${pageContext.request.contextPath}/ServletObtenerPropiedadesPaginadas?page=${i}">${i}</a>
+			            </li>
+			        </c:forEach>
+			        <c:if test="${currentPage < totalPages}">
+			            <li class="page-item">
+			                <a class="a btn btn-pagination" href="${pageContext.request.contextPath}/ServletObtenerPropiedadesPaginadas?page=${currentPage + 1}">Siguiente &raquo;</a>
+			            </li>
+			        </c:if>
+			    </ul>
+				</nav>
+	    	</div>
+		</div>
+        
+        
 </div>
 <jsp:include page="footer.jsp" />
 </body>
