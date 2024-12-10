@@ -9,6 +9,8 @@
 <!-- Bootstrap -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <title>Inmobiliaria Paula Uzubiaga</title>
+<link rel="icon" href="${pageContext.request.contextPath}/logos/icono.png"/>
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 	<jsp:include page="menu.jsp" />

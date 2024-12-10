@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <title>Propiedades</title>
 <link rel="stylesheet" href="css/styles.css">
+<link rel="icon" href="${pageContext.request.contextPath}/logos/icono.png"/>
 </head>
 <body>
 <jsp:include page="menu.jsp"/>
