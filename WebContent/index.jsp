@@ -18,7 +18,7 @@
 <jsp:include page="menu.jsp"/>
 <c:import url="/ServletObtenerResumenPropiedades" />
 <div class="container mt-4">
-    <h1 class="text-center" >Bienvenido</h1>
+    <h1 class="text-center">¡Bienvenido!</h1>
     <p class="text-center">Encuentra la propiedad de tus sueños con nosotros.</p>
     <div class="row">
         <c:set var="contador" value="0" />

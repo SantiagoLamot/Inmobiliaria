@@ -17,7 +17,7 @@
 <body>
 <jsp:include page="menu.jsp"/>
 <div class="container mt-4">
-    <h3 class="text-center" >Nuestras propiedades.</h3>
+    <h1 class="text-center">¡Nuestras propiedades!</h1>
     <div class="row">
         <c:forEach var="Propiedad" items="${propiedadesPaginadas}">
             <div class="col-lg-4 col-md-6 col-sm-12 mb-4">

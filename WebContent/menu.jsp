@@ -6,19 +6,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Menu</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<style>
-    .navbar-nav .nav-link {
-        font-size: 18px;
-        padding: 10px 20px;
-    }
-    .navbar-brand img {
-        max-width: 100%;
-        height: auto;
-    }
-</style>
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container">
         <!-- Columna de la imagen -->
         <a class="navbar-brand" href="${pageContext.request.contextPath}">

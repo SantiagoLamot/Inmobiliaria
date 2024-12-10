@@ -1,3 +1,5 @@
+/* boton principal */
+
 a.btn.btn-primary{
     background-color: #72806B !important; /* Reemplaza este valor con el color verde de tu logo */
     border-color: #72806B !important; /* Reemplaza este valor con el color verde de tu logo */
@@ -9,7 +11,7 @@ a.btn.btn-primary:hover {
     border-color: #55694E !important; /* Un tono más oscuro para el hover */
 }
 
-
+/* boton de paginacion */
 
 a.btn.btn-pagination {
     background-color: #72806B !important; /* Color de fondo */
@@ -30,3 +32,22 @@ a.btn.btn-pagination:hover {
     background-color: #72806B !important;
 }
 
+
+
+/* para dejar el menu arriba */
+body {
+        padding-top: 70px; /* Ajusta este valor según la altura de tu menú */
+}
+.fixed-top {
+        z-index: 1030;
+}
+
+/* botones de menu */
+.navbar-nav .nav-link {
+        font-size: 18px;
+        padding: 10px 20px;
+}
+.navbar-brand img {
+        max-width: 100%;
+        height: auto;
+}
