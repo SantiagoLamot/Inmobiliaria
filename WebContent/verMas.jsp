@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="entidades.Propiedad" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -41,7 +42,17 @@
 	</div>	
 	<div class="row mb-4">
 		<div class="col-md-12 centrar text-center">
-		    <p class="text-center"><strong>Descripción:</strong> ${Propiedad.getDescripcion()}</p>
+		    <%
+		    Propiedad propiedad = (Propiedad) session.getAttribute("Propiedad");
+		    String descripcion = "<br>";
+		    if (propiedad != null) {
+		        descripcion += propiedad.getDescripcion();
+		        if (descripcion != null) {
+		            descripcion = descripcion.replace("\n", "<br>");
+		        }
+		    }
+            %>
+            <p class="text-center"><strong>Descripción:</strong> <%= descripcion %></p>
 		</div>
 	</div>	
     <div class="row mb-4">
