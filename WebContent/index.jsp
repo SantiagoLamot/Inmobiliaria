@@ -8,6 +8,7 @@
 
 <!-- Ajusta el diseño para móviles, adaptando el ancho al dispositivo y garantizando un comportamiento responsive. -->
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="css/styles.css">
 <!-- Bootstrap -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <title>Inmobiliaria Paula Uzubiaga</title>
@@ -19,7 +20,9 @@
     <h1 class="text-center" >Bienvenido</h1>
     <p class="text-center">Encuentra la propiedad de tus sueños con nosotros.</p>
     <div class="row">
+        <c:set var="contador" value="0" />
         <c:forEach var="Propiedad" items="${Propiedades}">
+            <c:if test="${contador < 3}">
             <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                 <div class="card h-100">
                     <c:choose>
@@ -39,8 +42,15 @@
                     </div>
                 </div>
             </div>
+            <c:set var="contador" value="${contador + 1}" />
+   		 	</c:if>
         </c:forEach>
     </div>
+   <div class="row" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+	    <div class="col-lg-4 col-md-6 col-sm-12 mb-4" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+	        <a href="${pageContext.request.contextPath}/propiedades.jsp" class="btn btn-primary" style="display: flex; justify-content: center; align-items: center;">Ver todas las propiedades</a>
+	    </div>
+	</div>
 </div>
 <jsp:include page="footer.jsp" />
 </body>

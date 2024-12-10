@@ -1,0 +1,10 @@
+a.btn.btn-primary{
+    background-color: #72806B !important; /* Reemplaza este valor con el color verde de tu logo */
+    border-color: #72806B !important; /* Reemplaza este valor con el color verde de tu logo */
+    color: white !important; /* Color del texto */
+}
+
+a.btn.btn-primary:hover {
+    background-color: #63725B !important; /* Un tono más oscuro para el hover */
+    border-color: #55694E !important; /* Un tono más oscuro para el hover */
+}
