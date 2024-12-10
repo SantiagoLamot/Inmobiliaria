@@ -19,7 +19,7 @@
             </div>
         </div>
     </div>
-    <div class="text-center p-3 bg-secondary text-white">
+    <div class="text-center p-3 bg-secondary text-white custom-bg">
         © 2024 Inmobiliaria Paula Uzubiaga. Todos los derechos reservados.
     </div>
 </footer>

@@ -8,3 +8,9 @@ a.btn.btn-primary:hover {
     background-color: #63725B !important; /* Un tono más oscuro para el hover */
     border-color: #55694E !important; /* Un tono más oscuro para el hover */
 }
+
+
+/* color de fonde pie de pagina */
+.text-center.p-3.bg-secondary.text-white.custom-bg {
+    background-color: #72806B !important;
+}
