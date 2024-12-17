@@ -51,3 +51,14 @@ body {
         max-width: 100%;
         height: auto;
 }
+
+.body-background {
+    background-image: url('/images/hall.png'); /* Ruta relativa a la imagen */
+    background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    min-height: 100vh; /* Asegura que el fondo cubra toda la altura de la página */
+    display: flex; /* Opcional: Para permitir centrar contenido */
+    flex-direction: column; /* Opcional: Para alinear el contenido */
+    justify-content: space-between; /* Opcional: Para alinear encabezado y pie de página */
+}

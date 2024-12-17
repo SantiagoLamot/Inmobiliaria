@@ -18,10 +18,10 @@
 <link rel="stylesheet" href="css/styles.css">
 <link rel="icon" href="${pageContext.request.contextPath}/logos/icono.png"/>
 </head>
-<body>
+
+<body style="background-image: url('${pageContext.request.contextPath}/images/hall.png'); background-size: cover; background-position: center;">
 
 <jsp:include page="menu.jsp" />
-	
 <div class="container mt-4">
     <div class="row mb-4">
 		<div class="col-md-12 centrar">
