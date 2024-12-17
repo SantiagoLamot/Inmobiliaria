@@ -27,11 +27,6 @@ a.btn.btn-pagination:hover {
 }
 
 
-/* color de fonde pie de pagina */
-.text-center.p-3.bg-secondary.text-white.custom-bg {
-    background-color: #72806B !important;
-}
-
 
 
 /* para dejar el menu arriba */
@@ -52,8 +47,8 @@ body {
         height: auto;
 }
 
-.body-background {
-    background-image: url('/images/hall.png'); /* Ruta relativa a la imagen */
+.body-servicios {
+    background-image: url('/Inmobiliaria/images/hall.png'); /* Ruta relativa a la imagen */
     background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
     background-position: center; /* Centra la imagen */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
@@ -61,4 +56,36 @@ body {
     display: flex; /* Opcional: Para permitir centrar contenido */
     flex-direction: column; /* Opcional: Para alinear el contenido */
     justify-content: space-between; /* Opcional: Para alinear encabezado y pie de página */
+}
+
+
+
+/* color de fonde pie de pagina */
+.text-center.p-3.bg-secondary.text-white.custom-bg {
+    background-color: #72806B !important;
+    
+}
+
+html {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    min-height: 100vh; /* Asegura que el body cubra al menos la altura del viewport */
+    display: flex; /* Habilita flexbox */
+    flex-direction: column; /* Coloca los elementos hijos verticalmente */
+    margin: 0;
+}
+
+/* Contenido principal debe expandirse para llenar el espacio disponible */
+.main-content {
+    flex: 1; /* Hace que el contenido principal crezca y ocupe el espacio restante */
+}
+
+/* Footer siempre al fondo */
+footer {
+    background-color: #72806B; /* Color del fondo del footer */
+    text-align: center;
+    padding: 10px 0;
 }
