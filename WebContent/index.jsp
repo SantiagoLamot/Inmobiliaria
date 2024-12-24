@@ -34,7 +34,7 @@
                         <img src="https://st.depositphotos.com/2934765/53192/v/380/depositphotos_531920820-stock-illustration-photo-available-vector-icon-default.jpg" class="card-img-top" alt="Imagen no disponible" width="300" height="300">
                     </c:otherwise>
                		 </c:choose>
-                    <div class="card-body">
+                    <div class="card-body text-center">
                         <h5 class="card-title">${Propiedad.getTitulo()}</h5>
                         <p>
     						<c:out value="${Propiedad.getResenia()}" escapeXml="false" />

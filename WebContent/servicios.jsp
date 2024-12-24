@@ -18,10 +18,11 @@
 <link rel="stylesheet" href="css/styles.css">
 <link rel="icon" href="${pageContext.request.contextPath}/logos/icono.png"/>
 </head>
-<body>
+
+<body class="body-servicios">
 
 <jsp:include page="menu.jsp" />
-	
+<div class="main-content">
 <div class="container mt-4">
     <div class="row mb-4">
 		<div class="col-md-12 centrar">
@@ -36,6 +37,7 @@
 		</div>
 	</c:forEach> 
 </div>               	
+</div>
 <script>
         document.addEventListener('keydown', function(event) {
         if (event.ctrlKey && event.altKey && event.key === 'A') {
@@ -45,6 +47,6 @@
         });
 </script> 
 
-<jsp:include page="footer.jsp" />      	
+<jsp:include page="footer.jsp"/>      	
 </body>
 </html>
