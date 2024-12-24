@@ -29,7 +29,7 @@
                     
                     <div class="form-group mb-3">
                         <label for="txtPrecio">Precio</label>
-                        <input type="number" step="0.01" name="txtPrecio" id="txtPrecio" class="form-control">
+                        <input type="text" step="0.01" name="txtPrecio" id="txtPrecio" class="form-control">
                     </div>
                     
                     <div class="form-group mb-3">

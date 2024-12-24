@@ -19,6 +19,39 @@
     <jsp:include page="menu.jsp" />
 </header>
 <div class="container mt-4">
+    <!-- Carrusel de imágenes -->
+    <div id="propertyCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <c:forEach var="imagen" items="${Propiedad.getImagenes()}" varStatus="status">
+                <c:if test="${not empty imagen.getURLimagen()}">
+                	<div class="carousel-item ${status.first ? 'active' : ''}">
+                   		<img src="${pageContext.request.contextPath}/${imagen.getURLimagen()}" class="d-block w-100" alt="Imagen de propiedad">
+              		</div>
+              	</c:if>
+            </c:forEach>
+        </div>
+        
+        <!-- Controles del carrusel -->
+        <a class="carousel-control-prev" href="#propertyCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Anterior</span>
+        </a>
+        <a class="carousel-control-next" href="#propertyCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Siguiente</span>
+        </a>
+    </div>
+    <div class="row mb-4">
+    <div class="col-md-12">
+        <div class="d-inline-block">
+            <img src="${pageContext.request.contextPath}/logos/logoLocalidad.png" class="mb-0" style="display: inline-block; vertical-align: middle;">
+            <p class="mb-0 d-inline-block" style="vertical-align: middle; margin-left: 10px;">
+                <strong>${Propiedad.getLocalidad()}</strong>
+            </p>
+        </div>
+    </div>
+</div>
+    
     <div class="row mb-4">
 		<div class="col-md-12 centrar text-center">
     		<h1 class="text-center">${Propiedad.getTitulo()}</h1>
@@ -27,6 +60,7 @@
 			</p>
 		</div>
 	</div>
+	
 	
     <div class="row mb-4">
 		<div class="col-md-12 centrar text-center">
@@ -41,6 +75,8 @@
 			</c:if>
 		</div>
 	</div>	
+	
+	
 	<div class="row mb-4">
 		<div class="col-md-12 centrar text-center">
 		    <%
@@ -55,35 +91,12 @@
             %>
             <p class="text-center"><strong>Descripción:</strong> <%= descripcion %></p>
 		</div>
-	</div>	
-    <div class="row mb-4">
-		<div class="col-md-12 centrar text-center">
-		    <p class="text-center"><strong>Localidad:</strong> ${Propiedad.getLocalidad()}</p>
-		</div>
-	</div>	
-    <!-- Carrusel de imágenes -->
-    <div id="propertyCarousel" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-            <c:forEach var="imagen" items="${Propiedad.getImagenes()}" varStatus="status">
-                <c:if test="${not empty imagen.getURLimagen()}">
-                	<div class="carousel-item ${status.first ? 'active' : ''}">
-                   		<img src="${pageContext.request.contextPath}/${imagen.getURLimagen()}" class="d-block w-100" alt="Imagen de propiedad">
-              		</div>
-              	</c:if>
-            </c:forEach>
-        </div>
-        <!-- Controles del carrusel -->
-        <a class="carousel-control-prev" href="#propertyCarousel" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Anterior</span>
-        </a>
-        <a class="carousel-control-next" href="#propertyCarousel" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Siguiente</span>
-        </a>
-    </div>
+	</div>
+	
 
     <p class="text-center"><strong>Ubicacion:</strong></p>
+    
+    
     <div class="row mt-4">
         <div class="col-12 d-flex justify-content-center">
             <iframe
@@ -97,6 +110,8 @@
             </iframe>
         </div>
     </div>
+    
+    
 </div>
 <jsp:include page="footer.jsp" />
 </body>
