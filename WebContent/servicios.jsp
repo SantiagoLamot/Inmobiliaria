@@ -18,12 +18,12 @@
 <link rel="stylesheet" href="css/styles.css">
 <link rel="icon" href="${pageContext.request.contextPath}/logos/icono.png"/>
 </head>
-
-<body class="body-servicios">
-
 <jsp:include page="menu.jsp" />
+
+<body >
+
 <div class="main-content">
-<div class="container mt-4">
+<div class="container mt-4 body-servicios">
     <div class="row mb-4">
 		<div class="col-md-12 centrar">
 			<h1 class="text-center">¡Nuestros servicios!</h1>
@@ -47,6 +47,6 @@
         });
 </script> 
 
-<jsp:include page="footer.jsp"/>      	
 </body>
+<jsp:include page="footer.jsp"/>      	
 </html>

@@ -33,7 +33,6 @@ public class ServletEliminarPropiedad extends HttpServlet {
 			// Construir la ruta completa del archivo utilizando `fileName`
 			File fileToDelete = new File(applicationPath, url);
 			
-			System.out.println("Ruta final del archivo a eliminar: " + fileToDelete.getAbsolutePath());
 			
 			if (fileToDelete.exists()) {
 				if (fileToDelete.delete()) {

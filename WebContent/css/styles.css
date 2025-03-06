@@ -7,8 +7,8 @@ a.btn.btn-primary{
 }
 
 a.btn.btn-primary:hover {
-    background-color: #63725B !important; /* Un tono más oscuro para el hover */
-    border-color: #55694E !important; /* Un tono más oscuro para el hover */
+    background-color: #63725B !important; /* Un tono mï¿½s oscuro para el hover */
+    border-color: #55694E !important; /* Un tono mï¿½s oscuro para el hover */
 }
 
 /* boton de paginacion */
@@ -22,16 +22,56 @@ a.btn.btn-pagination {
 }
 
 a.btn.btn-pagination:hover {
-    background-color: #63725B !important; /* Un tono más oscuro para el hover */
-    border-color: #55694E !important; /* Un tono más oscuro para el hover */
+    background-color: #63725B !important; /* Un tono mï¿½s oscuro para el hover */
+    border-color: #55694E !important; /* Un tono mï¿½s oscuro para el hover */
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+.body-servicios {
+    background-image: url('/Inmobiliaria/images/hall.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    position: relative;
+}
+
+.body-servicios::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(114, 128, 107, 0.7); /* Color verde con opacidad */
+    z-index: 1;
+}
+
+.body-servicios > * {
+    position: relative;
+    z-index: 2;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
 
 
 
 
 /* para dejar el menu arriba */
 body {
-        padding-top: 70px; /* Ajusta este valor según la altura de tu menú */
+        padding-top: 70px; /* Ajusta este valor segï¿½n la altura de tu menï¿½ */
 }
 .fixed-top {
         z-index: 1030;
@@ -47,16 +87,6 @@ body {
         height: auto;
 }
 
-.body-servicios {
-    background-image: url('/Inmobiliaria/images/hall.png'); /* Ruta relativa a la imagen */
-    background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
-    background-position: center; /* Centra la imagen */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    min-height: 100vh; /* Asegura que el fondo cubra toda la altura de la página */
-    display: flex; /* Opcional: Para permitir centrar contenido */
-    flex-direction: column; /* Opcional: Para alinear el contenido */
-    justify-content: space-between; /* Opcional: Para alinear encabezado y pie de página */
-}
 
 
 
@@ -89,3 +119,4 @@ footer {
     text-align: center;
     padding: 10px 0;
 }
+

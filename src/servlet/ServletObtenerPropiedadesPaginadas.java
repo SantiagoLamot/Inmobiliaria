@@ -23,7 +23,6 @@ public class ServletObtenerPropiedadesPaginadas extends HttpServlet {
     }
 	
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	System.out.println("Entro al servlet de paginacion");
     	// Parámetros para paginar
         String pageParam = request.getParameter("page");
         int page = 1;

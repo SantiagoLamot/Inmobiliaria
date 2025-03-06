@@ -38,7 +38,6 @@ public class ServletEliminarImagenSetPrincipal extends HttpServlet {
 				// Construir la ruta completa del archivo utilizando `fileName`
 				File fileToDelete = new File(applicationPath, fileName);
 				
-				System.out.println("Ruta final del archivo a eliminar: " + fileToDelete.getAbsolutePath());
 				
 				if (fileToDelete.exists()) {
 					if (fileToDelete.delete()) {

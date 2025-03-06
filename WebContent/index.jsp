@@ -14,8 +14,8 @@
 <title>Inmobiliaria Paula Uzubiaga</title>
 <link rel="icon" href="${pageContext.request.contextPath}/logos/icono.png"/>
 </head>
-<body>
 <jsp:include page="menu.jsp"/>
+<body>
 <c:import url="/ServletObtenerResumenPropiedades" />
 <div class="container mt-4">
     <h1 class="text-center">¡Bienvenido!</h1>
@@ -53,6 +53,6 @@
 	    </div>
 	</div>
 </div>
-<jsp:include page="footer.jsp" />
 </body>
+<jsp:include page="footer.jsp" />
 </html>

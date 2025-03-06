@@ -5,10 +5,19 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DaoConexion {
-	private String host = "jdbc:mysql://node211771-inmobiliaria.sp1.br.saveincloud.net.br:3306/";
     private String user = "root";
-    private String pass = "RRBchx81625";
     private String dbName = "db_inmobiliaria";
+
+//  PARA SERVIDOR
+    
+//    private String host = "jdbc:mysql://node211771-inmobiliaria.sp1.br.saveincloud.net.br:3306/";
+//    private String pass = "RRBchx81625";
+
+//  PARA LOCALHOST
+    
+    private String host = "jdbc:mysql://localhost:3306/";
+    private String pass = "root";
+    
     private Connection connection = null;
 
     public DaoConexion() {

@@ -24,7 +24,7 @@ public class FiltroIndex implements Filter {
 		// Convertir las interfaces genéricas a las específicas de HTTP
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
-        System.out.println("Entro al filtro index");
+        
         // Redirigir al servlet que me carga el resumend de propieda deseado
         httpResponse.sendRedirect(httpRequest.getContextPath() + "/ServletObtenerResumenPropiedades");
 		return;
