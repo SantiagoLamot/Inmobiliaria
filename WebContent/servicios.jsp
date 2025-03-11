@@ -14,7 +14,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!-- Bootstrap -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<title>Inmobiliaria Paula Uzubiaga</title>
+<title>Servicios - Paula Uzubiaga Casas & Campos</title>
 <link rel="stylesheet" href="css/styles.css">
 <link rel="icon" href="${pageContext.request.contextPath}/logos/icono.png"/>
 </head>

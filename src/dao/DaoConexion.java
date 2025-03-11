@@ -10,13 +10,13 @@ public class DaoConexion {
 
 //  PARA SERVIDOR
     
-//    private String host = "jdbc:mysql://node211771-inmobiliaria.sp1.br.saveincloud.net.br:3306/";
-//    private String pass = "RRBchx81625";
+	private String host = "jdbc:mysql://node220001-uzubiaga.sp1.br.saveincloud.net.br:3306/";
+	private String pass = "BNClai32688";
 
 //  PARA LOCALHOST
     
-    private String host = "jdbc:mysql://localhost:3306/";
-    private String pass = "root";
+	//private String host = "jdbc:mysql://localhost:3306/";
+	//private String pass = "root";
     
     private Connection connection = null;
 

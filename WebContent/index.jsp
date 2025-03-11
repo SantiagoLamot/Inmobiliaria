@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="css/styles.css">
 <!-- Bootstrap -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<title>Inmobiliaria Paula Uzubiaga</title>
+<title>Paula Uzubiaga Casas & Campos</title>
 <link rel="icon" href="${pageContext.request.contextPath}/logos/icono.png"/>
 </head>
 <jsp:include page="menu.jsp"/>
